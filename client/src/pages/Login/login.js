@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { withRouter } from 'react-router-dom';
 import "./login.css"
 
-export default function Login() {
+export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -11,13 +12,19 @@ export default function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(email, password)
+    console.log(email, password);
   }
+  function handleSingUp(event) {
+    event.preventDefault();
+    console.log(email, password);
+    props.history.push('/signup')
+  }
+
 
   return (
 
     <form className="form-signin" onSubmit={handleSubmit}>
-      <h1 className="h3 mb-3 font-weight-normal">Sign in to get help</h1>
+      <h1 className="signinTitle">Sign in here</h1>
       <label htmlFor="inputEmail" className="sr-only">Email address</label>
       <input type="email"
         id="inputinEmail"
@@ -42,6 +49,7 @@ export default function Login() {
       <button className="btn btn-lg btn-primary btn-block"
         type="submit">Sign in</button>
       <button className="btn btn-lg btn-secondary btn-block"
+      onClick={handleSingUp}
       >Sign Up</button>
       <p className="mt-5 mb-3 text-muted">&copy; Stronger Comunity 2020</p>
     </form>

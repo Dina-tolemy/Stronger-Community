@@ -1,7 +1,7 @@
 import React, { useState }from "react";
 import "./signup.css";
 
-function SignUp () {
+function SignUp (props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
@@ -12,10 +12,17 @@ function SignUp () {
  function  handleSubmit(event) {
     event.preventDefault();
     console.log(email,phone,password,suburb,phone);
+    props.history.push('/')
+  }
+
+  function handleuserLogin(event) {
+    event.preventDefault();
+    console.log(email, password);
+    props.history.push('/')
   }
 
     return (
-      <form onSubmit={handleSubmit}>
+      <form  className="form-signup"onSubmit={handleSubmit}>
         <input
           type="name"
           id="inputName"
@@ -66,10 +73,10 @@ function SignUp () {
           autoFocus
           onChange={e => setPassword(e.target.value)}
         />
-        <button className="btn btn-lg btn-primary btn-block" type="submit">
-          Sign up to get help
+        <button className="btn btn-primary gethelpButton btn-block" type="submit">
+          Sign up for help
         </button>
-        <button className="btn btn-lg  btn-block" type="submit">
+        <button className="btn btn-primary helpButton btn-block" onClick={handleuserLogin}>
           Sign up to help
         </button>
         <p className="mt-5 mb-3 text-muted">&copy; Stronger Comunity 2020</p>
