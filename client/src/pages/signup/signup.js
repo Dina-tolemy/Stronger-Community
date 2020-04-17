@@ -1,94 +1,97 @@
 import React, { useState }from "react";
 import API  from '../../utils/API';
 import "./signup.css";
+import { Link } from "react-router-dom";
 
-function SignUp (props) {
-    const [email, setEmail] = useState("");
+function SignUp () {
+   /* const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
     const [suburb, setSuburb] = useState("");
-    const [phone, setPhone] = useState("");
+    const [phone, setPhone] = useState("");*/
 
-    function validateForm() {
-      return  password.length > 6;
+    const [userData, setUserData]=useState([]);
+    const [formObject, setFormObject] = useState({});
+
+
+    function handleInputChange(event){
+
+      const { name, value } = event.target;
+      setFormObject({...formObject, [name]: value})
     }
 
  function  handleSubmit(event) {
     event.preventDefault();
-   // console.log(email,phone,password,suburb,phone);
-   validateForm();
     API.saveUser({
-      name: name,
-      email: email,
-      phone: phone,
-      suburb:suburb,
-      password:password
+      name: formObject.name,
+      email: formObject.email,
+      phone: formObject.phone,
+      suburb:formObject.suburb,
+      password:formObject.password
     })
       .then(res => console.log(res))
-      .catch(err => console.log(err));
+      ;
     
   }
 
 
   function handleuserLogin(event) {
     event.preventDefault();
-    console.log(email, password);
-    props.history.push('/')
+    console.log(formObject);
+    //props.history.push('/')
   }
 
     return (
-      <form  className="form-signup"onSubmit={handleSubmit}>
+      <form  className="form-signup">
         <input
           type="name"
           id="inputName"
-          value={name}
           name="name"
           placeholder="Enter your name here "
           required
           autoFocus
-          onChange={e => setName(e.target.value)}
+          onChange={handleInputChange}
         />
         <input
           type="email"
           id="inputEmail"
-          value={email}
           name="email"
           placeholder="Enter your Email here"
           required
           autoFocus
-          onChange={e => setEmail(e.target.value)}
+          onChange={handleInputChange}
         />
         <input
           type="Suburb"
           id="inputSub"
-          value={suburb}
           name="suburb"
           placeholder="Enter your Suburb here"
           required
           autoFocus
-          onChange={e => setSuburb(e.target.value)}
+          onChange={handleInputChange}
         />
         <input
           type="phone"
           id="inputPhone"
-          value={phone}
           name="phone"
           placeholder="Enter your phone number here"
           required
           autoFocus
-          onChange={e => setPhone(e.target.value)}
+          onChange={handleInputChange}
         />
         <input
           type="password"
           id="inputPassword"
-          value={password}
           name="password"
           placeholder="Enter your password"
           required
           autoFocus
-          onChange={e => setPassword(e.target.value)}
+          onChange={handleInputChange}
         />
-        <button className="btn btn-primary gethelpButton btn-block" type="submit">
+        <button className="btn btn-primary gethelpButton btn-block"
+         type="submit"
+         disabled={!(formObject.name && formObject.email &&formObject.password)}
+         onClick={handleSubmit}>
           Sign up for help
         </button>
         <button className="btn btn-primary helpButton btn-block" onClick={handleuserLogin}>
