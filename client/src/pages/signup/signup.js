@@ -1,4 +1,5 @@
 import React, { useState }from "react";
+import API  from '../../utils/API';
 import "./signup.css";
 
 function SignUp (props) {
@@ -8,12 +9,26 @@ function SignUp (props) {
     const [suburb, setSuburb] = useState("");
     const [phone, setPhone] = useState("");
 
+    function validateForm() {
+      return  password.length > 6;
+    }
 
  function  handleSubmit(event) {
     event.preventDefault();
-    console.log(email,phone,password,suburb,phone);
-    props.history.push('/')
+   // console.log(email,phone,password,suburb,phone);
+   validateForm();
+    API.saveUser({
+      name: name,
+      email: email,
+      phone: phone,
+      suburb:suburb,
+      password:password
+    })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+    
   }
+
 
   function handleuserLogin(event) {
     event.preventDefault();

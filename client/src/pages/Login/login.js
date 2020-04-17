@@ -7,10 +7,11 @@ export default function Login(props) {
   const [password, setPassword] = useState("");
 
   function validateForm() {
-    return email.length > 0 && password.length > 0;
+    return email.length > 0 && password.length > 6;
   }
 
   function handleSubmit(event) {
+    validateForm();
     event.preventDefault();
     console.log(email, password);
   }
