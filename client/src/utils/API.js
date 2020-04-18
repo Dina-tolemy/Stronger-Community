@@ -2,8 +2,10 @@ import axios from "axios";
 
 
 export default {
-    
-    saveUser: function(userData) {
-      return axios.post("/api/signup", userData);
+  getUsers: function() {
+    return axios.get("/api/users");
+  },
+    saveUserData: function(userData) {
+      return axios.post("/api/users", userData);
     }
   };
