@@ -7,5 +7,8 @@ export default {
   },
     saveUserData: function(userData) {
       return axios.post("/api/users", userData);
+    },
+    checkUser: function(userData){
+      return axios.post("api/users/login",userData)
     }
   };

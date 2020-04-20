@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
 import "./signup.css";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 function SignUp(props) {
   const [userData, setUserData] = useState([]);
@@ -14,13 +14,13 @@ function SignUp(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(formObject);
     API.saveUserData({
       name: formObject.name,
       suburb: formObject.suburb,
       email: formObject.email,
       phone: formObject.phone,
-      password: formObject.password
+      password: formObject.password,
+      userType:"getHelp"
     })
       .then(res => console.log(formObject))
       .catch(err => console.log(err))
@@ -28,11 +28,20 @@ function SignUp(props) {
       props.history.push('/'));
   }
 
-  function handleuserLogin(event) {
+  function handleHelpersignUp(event) {
     event.preventDefault();
-    console.log(formObject);
-   // API.getUsers();
-    props.history.push('/')
+    API.saveUserData({
+      name: formObject.name,
+      suburb: formObject.suburb,
+      email: formObject.email,
+      phone: formObject.phone,
+      password: formObject.password,
+      userType:"Helper"
+    })
+      .then(res => console.log(formObject))
+      .catch(err => console.log(err))
+      .then(
+      props.history.push('/'));
   }
 
   return (
@@ -97,7 +106,7 @@ function SignUp(props) {
       <button
        disabled={!(formObject.name && formObject.email && formObject.password)}
         className="btn btn-primary helpButton btn-block"
-        onClick={handleuserLogin}
+        onClick={handleHelpersignUp}
       >
         Sign up to help
       </button>

@@ -1,46 +1,63 @@
 import React, { useState } from "react";
-import { withRouter } from 'react-router-dom';
+//import { withRouter } from 'react-router-dom';
+import API from "../../utils/API";
 import "./login.css"
 
 export default function Login(props) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [userData, setUserData] = useState([]);
+  const [formObject, setFormObject] = useState({});
+ 
 
-  function validateForm() {
-    return email.length > 0 && password.length > 6;
-  }
+
 
   function handleSubmit(event) {
-    validateForm();
     event.preventDefault();
-    console.log(email, password);
+    console.log(formObject);
+    API.checkUser({
+      email: formObject.email,
+      password: formObject.password,
+    })
+      .then(res => {
+        if(res.data.userType==="getHelp"){
+          props.history.push('/getHelp')
+        }
+        else if(res.data.userType==="Helper"){
+          props.history.push('/helper')
+        }
+      })
+      .catch(err => console.log(err))
+  }
+
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormObject({ ...formObject, [name]: value });
   }
   function handleSingUp(event) {
     event.preventDefault();
-    console.log(email, password);
+    console.log(formObject);
     props.history.push('/signup')
   }
 
 
   return (
 
-    <form className="form-signin" onSubmit={handleSubmit}>
+    <form className="form-signin" >
       <h1 className="signinTitle">Sign in here</h1>
       <label htmlFor="inputEmail" className="sr-only">Email address</label>
       <input type="email"
         id="inputinEmail"
-        value={email}
-        onChange={e => setEmail(e.target.value)}
+        name="email"
+        onChange={handleInputChange}
         className="form-control"
         placeholder="Email address"
         required autoFocus />
       <label htmlFor="inputPassword" className="sr-only">Password</label>
       <input type="password"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
+        onChange={handleInputChange}
         id="inputinPassword"
         className="form-control"
         placeholder="Password"
+        name="password"
         required />
       <div className="checkbox mb-3">
         <label>
@@ -48,7 +65,7 @@ export default function Login(props) {
         </label>
       </div>
       <button className="btn btn-lg btn-primary btn-block"
-        type="submit">Sign in</button>
+        type="submit" onClick={handleSubmit}>Sign in</button>
       <button className="btn btn-lg btn-secondary btn-block"
       onClick={handleSingUp}
       >Sign Up</button>
