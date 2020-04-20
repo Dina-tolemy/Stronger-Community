@@ -15,7 +15,7 @@ const usersSeed=[{
     suburb:"chatswood",
     phone:"23456778",
     password:"dina123",
-    userType:"vul"
+    userType:"getHelp"
 
 },{
     name:"lina",
@@ -23,7 +23,7 @@ const usersSeed=[{
     suburb:"cbd",
     phone:"26778",
     password:"lina123",
-    userType:"vul"
+    userType:"Helper"
 
 },{
     name:"tina",
@@ -31,7 +31,7 @@ const usersSeed=[{
     suburb:"chatswood",
     phone:"254556778",
     password:"lina123",
-    userType:"helper"
+    userType:"Helper"
 
 }
 
