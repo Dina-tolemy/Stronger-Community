@@ -8,7 +8,12 @@ const passport = require("passport");
 const validateLoginInput = require("../../validation/login");
 const validateRegisterInput = require("../../validation/signup");
 
-// Matches with "/api/signup"
+router
+.route("/")
+.get(userController.finaAllVul)
+router
+  .route("/:id")
+  .get(userController.findById)
 router
   .route("/signup")
   .post((req, res) => {

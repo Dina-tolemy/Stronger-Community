@@ -15,11 +15,9 @@ export default function Login(props) {
       password: formObject.password,
     })
       .then((res) => {
-        if (res.data.userType === "getHelp") {
-          props.history.push("/getHelp");
-        } else if (res.data.userType === "Helper") {
-          props.history.push("/helper");
-        }
+        console.log(res.data);
+          props.history.push("/"+res.data.id);
+        
       })
       .catch((err) => console.log(err));
   }

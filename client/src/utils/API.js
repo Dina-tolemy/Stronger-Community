@@ -10,5 +10,11 @@ export default {
     },
     checkUser: function(userData){
       return axios.post("api/users/login",userData)
+    },
+    getuserDetails: function(id){
+      return axios.get("api/users/"+id)
+    },
+    getVulDetails: function(data){
+      return axios.get("api/users/",data)
     }
   };
