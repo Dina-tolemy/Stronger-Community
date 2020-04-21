@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 //import { withRouter } from 'react-router-dom';
 import API from "../../utils/API";
-import "./login.css"
+import "./login.css";
 
 export default function Login(props) {
   const [userData, setUserData] = useState([]);
   const [formObject, setFormObject] = useState({});
- 
-
-
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -17,15 +14,14 @@ export default function Login(props) {
       email: formObject.email,
       password: formObject.password,
     })
-      .then(res => {
-        if(res.data.userType==="getHelp"){
-          props.history.push('/getHelp')
-        }
-        else if(res.data.userType==="Helper"){
-          props.history.push('/helper')
+      .then((res) => {
+        if (res.data.userType === "getHelp") {
+          props.history.push("/getHelp");
+        } else if (res.data.userType === "Helper") {
+          props.history.push("/helper");
         }
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err));
   }
 
   function handleInputChange(event) {
@@ -35,40 +31,55 @@ export default function Login(props) {
   function handleSingUp(event) {
     event.preventDefault();
     console.log(formObject);
-    props.history.push('/signup')
+    props.history.push("/signup");
   }
 
-
   return (
-
-    <form className="form-signin" >
+    <form className="form-signin">
       <h1 className="signinTitle">Sign in here</h1>
-      <label htmlFor="inputEmail" className="sr-only">Email address</label>
-      <input type="email"
+      <label htmlFor="inputEmail" className="sr-only">
+        Email address
+      </label>
+      <input
+        type="email"
         id="inputinEmail"
         name="email"
         onChange={handleInputChange}
         className="form-control"
         placeholder="Email address"
-        required autoFocus />
-      <label htmlFor="inputPassword" className="sr-only">Password</label>
-      <input type="password"
+        required
+        autoFocus
+      />
+      <label htmlFor="inputPassword" className="sr-only">
+        Password
+      </label>
+      <input
+        type="password"
         onChange={handleInputChange}
         id="inputinPassword"
         className="form-control"
         placeholder="Password"
         name="password"
-        required />
+        required
+      />
       <div className="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me" /> Remember me
         </label>
       </div>
-      <button className="btn btn-lg btn-primary btn-block"
-        type="submit" onClick={handleSubmit}>Sign in</button>
-      <button className="btn btn-lg btn-secondary btn-block"
-      onClick={handleSingUp}
-      >Sign Up</button>
+      <button
+        className="btn btn-lg btn-primary btn-block"
+        type="submit"
+        onClick={handleSubmit}
+      >
+        Sign in
+      </button>
+      <button
+        className="btn btn-lg btn-secondary btn-block"
+        onClick={handleSingUp}
+      >
+        Sign Up
+      </button>
       <p className="mt-5 mb-3 text-muted">&copy; Stronger Comunity 2020</p>
     </form>
   );

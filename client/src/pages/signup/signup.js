@@ -111,13 +111,13 @@ function SignUp(props) {
       <button
         className="btn btn-primary gethelpButton btn-block"
         type="submit"
-       // disabled={!(formObject.name && formObject.email && formObject.password)}
+        disabled={!(formObject.name && formObject.email && formObject.password)}
         onClick={handleSubmit}
       >
         Sign up for help
       </button>
       <button
-      // disabled={!(formObject.name && formObject.email && formObject.password)}
+       disabled={!(formObject.name && formObject.email && formObject.password)}
         className="btn btn-primary helpButton btn-block"
         onClick={handleHelpersignUp}
       >

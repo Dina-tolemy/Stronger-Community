@@ -11,12 +11,10 @@ const validateRegisterInput = require("../../validation/signup");
 // Matches with "/api/signup"
 router
   .route("/signup")
-  //.get(userController.findAll)
-  // .post(userController.create);
   .post((req, res) => {
     // Form validation
 
-   const { errors, isValid } = validateRegisterInput(req.body);
+    const { errors, isValid } = validateRegisterInput(req.body);
 
     // Check validation
     if (!isValid) {
@@ -33,7 +31,7 @@ router
           suburb: req.body.suburb,
           phone: req.body.phone,
           password: req.body.password,
-          userType:req.body.userType
+          userType: req.body.userType,
         });
 
         // Hash password before saving in database
@@ -72,8 +70,6 @@ router.route("/login").post((req, res) => {
     }
 
     // Check password
-    // (password, user.password).then(isMatch => {
-    // if (isMatch) {
     bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {
         // User matched
