@@ -15,16 +15,6 @@ app.use(
 );
 app.use(bodyParser.json());
 
-//const db = require("./config/keys").mongoURI;
-//app.use(express.urlencoded({ extended: true }));
-//app.use(express.json());
-// Serve up static assets (usually on heroku)
-
-//mongoose
- // .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
- // .then(() => console.log("MongoDB successfully connected"))
- // .catch((err) => console.log(err));
-
  mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/community", {
   useNewUrlParser: true,
   useFindAndModify: false,

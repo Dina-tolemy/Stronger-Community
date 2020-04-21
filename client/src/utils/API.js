@@ -6,7 +6,7 @@ export default {
     return axios.get("/api/users");
   },
     saveUserData: function(userData) {
-      return axios.post("/api/users", userData);
+      return axios.post("/api/users/signup", userData);
     },
     checkUser: function(userData){
       return axios.post("api/users/login",userData)
