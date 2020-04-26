@@ -2,6 +2,7 @@ import React, { useState } from "react";
 //import { withRouter } from 'react-router-dom';
 import API from "../../utils/API";
 import "./login.css";
+//import HomeNav from '../../components/homePagenav/homenav'
 
 export default function Login(props) {
   const [userData, setUserData] = useState([]);
@@ -16,7 +17,8 @@ export default function Login(props) {
     })
       .then((res) => {
         console.log(res.data);
-          props.history.push("/"+res.data.id);
+         // props.history.push("/"+res.data.id);
+          window.location.href = "./"+res.data.id;
         
       })
       .catch((err) => console.log(err));
@@ -29,10 +31,12 @@ export default function Login(props) {
   function handleSingUp(event) {
     event.preventDefault();
     console.log(formObject);
+   // window.location.href = "/signup"
     props.history.push("/signup");
   }
 
   return (
+    <div className="mainPagediv">
     <form className="form-signin">
       <h1 className="signinTitle">Sign in here</h1>
       <label htmlFor="inputEmail" className="sr-only">
@@ -80,5 +84,6 @@ export default function Login(props) {
       </button>
       <p className="mt-5 mb-3 text-muted">&copy; Stronger Comunity 2020</p>
     </form>
+    </div>
   );
 }

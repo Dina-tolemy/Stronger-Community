@@ -1,10 +1,6 @@
 import axios from "axios";
 
-
 export default {
-  getUsers: function() {
-    return axios.get("/api/users");
-  },
     saveUserData: function(userData) {
       return axios.post("/api/users/signup", userData);
     },
@@ -15,6 +11,9 @@ export default {
       return axios.get("api/users/"+id)
     },
     getVulDetails: function(data){
-      return axios.get("api/users/",data)
+      return axios.get("api/users/getvul",data)
+    },
+    submittService: function(servicedata){
+      return axios.post("api/users/submitservice",servicedata)
     }
   };

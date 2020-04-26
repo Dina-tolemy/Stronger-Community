@@ -8,15 +8,27 @@ const passport = require("passport");
 const validateLoginInput = require("../../validation/login");
 const validateRegisterInput = require("../../validation/signup");
 
+router.route("/submitservice").post( (req, res) => {
+
+  const userId = params;
+  db.Service.create(body)
+    .then(({ _id }) => db.User.findOneAndUpdate({_id:userId}, { $push: { services: _id } }, { new: true }))
+    .then(dbUser => {
+      res.json(dbUser);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
 router
-.route("/")
-.get(userController.finaAllVul)
+.route("/getvul")
+.get(userController.finaAllVul);
 router
   .route("/:id")
-  .get(userController.findById)
-router
-  .route("/signup")
-  .post((req, res) => {
+  .get(userController.findById);
+  
+router.route("/signup").post((req, res) => {
     // Form validation
 
     const { errors, isValid } = validateRegisterInput(req.body);
@@ -89,7 +101,7 @@ router.route("/login").post((req, res) => {
           payload,
           keys.secretOrKey,
           {
-            expiresIn: 31556926, // 1 year in seconds
+            expiresIn: 900, // 15 minutes in seconds
           },
           (err, token) => {
             res.json({

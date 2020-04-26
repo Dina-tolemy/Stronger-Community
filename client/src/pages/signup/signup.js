@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
 import "./signup.css";
+//import Homenav from '../../components/homePagenav/homenav'
 //import { Link } from "react-router-dom";
 
-function SignUp(props) {
-  const [userData, setUserData] = useState([]);
+function SignUp() {
+  //const [userData, setUserData] = useState([]);
   const [formObject, setFormObject] = useState({});
 
   function handleInputChange(event) {
@@ -26,7 +27,7 @@ function SignUp(props) {
       .then(res => console.log(formObject))
       .catch(err => console.log(err))
       .then(
-      props.history.push('/'));
+        window.location.href = "./");
   }
 
   function handleHelpersignUp(event) {
@@ -44,10 +45,11 @@ function SignUp(props) {
       .then(res => console.log(formObject))
       .catch(err => console.log(err))
       .then(
-      props.history.push('/'));
+        window.location.href = "./");
   }
 
   return (
+    <div className="signUpdiv">
     <form className="form-signup">
       <input
         type="name"
@@ -109,7 +111,7 @@ function SignUp(props) {
         
       />
       <button
-        className="btn btn-primary gethelpButton btn-block"
+        className="btn  gethelpButton btn-block"
         type="submit"
         disabled={!(formObject.name && formObject.email && formObject.password)}
         onClick={handleSubmit}
@@ -118,13 +120,14 @@ function SignUp(props) {
       </button>
       <button
        disabled={!(formObject.name && formObject.email && formObject.password)}
-        className="btn btn-primary helpButton btn-block"
+        className="btn  helpButton btn-block"
         onClick={handleHelpersignUp}
       >
         Sign up to help
       </button>
       <p className="mt-5 mb-3 text-muted">&copy; Stronger Comunity 2020</p>
     </form>
+    </div>
   );
 }
 

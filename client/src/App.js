@@ -32,9 +32,9 @@ function App() {
   }
   return (
     <Router>
-        <Route exact path="/" component={Login} />
-        <Route exact path="/signup" component={Signup} />
-        <Route exact path="/:id" component={User}/>
+        <Route exact strict path="/" component={Login} />
+        <Route exact strict path="/signup" component={Signup} />
+        <Route exact strict path="/:id" component={User}/>
     </Router>
   );
 }
