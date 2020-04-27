@@ -13,7 +13,7 @@ export default {
     getVulDetails: function(data){
       return axios.get("api/users/getvul",data)
     },
-    submittService: function(servicedata){
-      return axios.post("api/users/submitservice",servicedata)
+    submittService: function(id,servicedata){
+      return axios.post("api/users/submitservice/"+id,servicedata)
     }
   };

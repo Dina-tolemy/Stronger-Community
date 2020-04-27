@@ -22,7 +22,7 @@ const User = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  if (id === "null") {
+  if (id === null) {
     return null;
   }
   function handleInputChange(event) {
@@ -32,7 +32,7 @@ const User = () => {
   function handleFormSubmit(event) {
     event.preventDefault();
 
-    API.submittService({
+    API.submittService(id,{
       name: serviceForm.title,
       details: serviceForm.body,
     })

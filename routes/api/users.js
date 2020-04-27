@@ -8,10 +8,10 @@ const passport = require("passport");
 const validateLoginInput = require("../../validation/login");
 const validateRegisterInput = require("../../validation/signup");
 
-router.route("/submitservice").post( (req, res) => {
+router.route("/submitservice/:id").post( (req, res) => {
 
-  const userId = params;
-  db.Service.create(body)
+  const userId =req.params.id ;
+  db.Service.create(req.body)
     .then(({ _id }) => db.User.findOneAndUpdate({_id:userId}, { $push: { services: _id } }, { new: true }))
     .then(dbUser => {
       res.json(dbUser);
