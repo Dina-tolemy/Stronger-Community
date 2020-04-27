@@ -48,8 +48,8 @@ const User = () => {
   return (
     <div className="userMainDiv">
       <div className="sidenav">
-        <a href="#services">Request Service</a>
-        <a href={"#allvull"}>People With requests</a>
+        <a href="#">Request Service</a>
+        <a href={"/"+{id}+"/allvull/"}>People With requests</a>
         <a href="#contact">Messeges</a>
         <a href="/" onClick={logoutUser}>
           Logout
