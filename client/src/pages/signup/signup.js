@@ -44,6 +44,7 @@ function SignUp() {
       userType:"Helper"
     })
       .then(res => console.log(formObject))
+      .then(()=>alert("You Have signed up, Good for you"))
       .catch(err => console.log(err))
       .then(
         window.location.href = "./");

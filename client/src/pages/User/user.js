@@ -35,6 +35,7 @@ const User = () => {
       details: serviceForm.details,
     })
       .then((res) => console.log(res,serviceForm))
+      .then(()=>alert("Your service Is submitted"))
       .catch((err) => console.log(err));
   }
 
