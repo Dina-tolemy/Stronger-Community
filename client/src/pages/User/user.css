@@ -2,6 +2,12 @@
     margin-left: 260px; /* Same as the width of the sidenav */
     font-size: 28px; /* Increased text to enable scrolling */
     padding: 0px 10px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .greetingUser{
+    color: #111;
+    background-color: #f1f1f1;
+    margin:10px;
   }
   .sidenav {
     height: 100%;
@@ -13,6 +19,7 @@
     background-color: #111;
     overflow-x: hidden;
     padding-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
   }
   
   .sidenav a {

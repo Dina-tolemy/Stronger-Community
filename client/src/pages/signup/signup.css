@@ -33,16 +33,17 @@
   }
   .gethelpButton{
 
-    background-color: brown;
+    background-color: teal;
     margin-top: 20px;
     margin: 10px;
-
+    color: whitesmoke;
   }
 
   .helpButton{
 
-    background-color: brown;
+    background-color: teal;
     margin-top: 20px;
     margin: 10px;
+    color: whitesmoke;
   
   }

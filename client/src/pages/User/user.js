@@ -55,7 +55,7 @@ const User = () => {
         </a>
       </div>
       <div className="mainPage">
-        <h1>Helllo : {user.name}</h1>
+        <h1 className="greetingUser">Welcome: {user.name}</h1>
         <form className="ServiceForm">
           <Input
             onChange={handleInputChange}

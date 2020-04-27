@@ -73,7 +73,7 @@ export default function Login(props) {
         </label>
       </div>
       <button
-        className="btn btn-lg btn-primary btn-block"
+        className="btn btn-lg  signInButton btn-block"
         type="submit"
         onClick={handleSubmit}
       >
