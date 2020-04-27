@@ -18,8 +18,8 @@ export default function Login(props) {
     })
       .then((res) => {
         console.log(res.data);
-         // props.history.push("/"+res.data.id);
-          window.location.href = "./"+res.data.id;
+         props.history.push("/"+res.data.id);
+         // window.location.href = "./"+res.data.id;
         
       })
       .catch((err) => console.log(err));

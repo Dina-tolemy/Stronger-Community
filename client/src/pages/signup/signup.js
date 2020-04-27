@@ -128,7 +128,7 @@ function SignUp() {
       >
         Sign up to help
       </button>
-      <p className="mt-5 mb-3 text-muted">&copy; Stronger Comunity 2020</p>
+      <p className="mt-3 mb-3 text-muted">&copy; Stronger Comunity 2020</p>
     </form>
     </div>
   );
