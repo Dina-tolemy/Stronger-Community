@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import API from "../../utils/API";
-//import { json } from "body-parser";
-//import Serviceform from "../../components/submitService/submitService";
 import "./user.css";
 import {
   Input,
@@ -49,7 +47,8 @@ const User = () => {
   return (
     <div className="userMainDiv">
       <div className="sidenav">
-        <a href="#services">Main</a>
+        <a href="#services">Request Service</a>
+        <a href={"#allvull"}>People With requests</a>
         <a href="#contact">Messeges</a>
         <a href="/" onClick={logoutUser}>
           Logout
@@ -70,7 +69,7 @@ const User = () => {
           />
           <FormBtn onClick={handleFormSubmit}></FormBtn>
         </form>
-        <button onClick={getvul}>test</button>
+        <button onClick={getvul}>test getting all vul data</button>
       </div>
     </div>
   );
