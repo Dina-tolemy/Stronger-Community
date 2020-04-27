@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import API from "../../utils/API";
 import "./login.css";
 //import HomeNav from '../../components/homePagenav/homenav'
+import Picturenav from "../../components/mainnavbar/mainnavbar"
 
 export default function Login(props) {
   const [userData, setUserData] = useState([]);
@@ -36,9 +37,11 @@ export default function Login(props) {
   }
 
   return (
+    
     <div className="mainPagediv">
+      <Picturenav/>
     <form className="form-signin">
-      <h1 className="signinTitle">Sign in here</h1>
+      <p>Don't have an account <a href="/signup">Sign up Here</a></p>
       <label htmlFor="inputEmail" className="sr-only">
         Email address
       </label>
@@ -76,12 +79,7 @@ export default function Login(props) {
       >
         Sign in
       </button>
-      <button
-        className="btn btn-lg btn-secondary btn-block"
-        onClick={handleSingUp}
-      >
-        Sign Up
-      </button>
+     
       <p className="mt-5 mb-3 text-muted">&copy; Stronger Comunity 2020</p>
     </form>
     </div>

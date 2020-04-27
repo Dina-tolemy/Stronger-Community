@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import "./signup.css";
 //import Homenav from '../../components/homePagenav/homenav'
 //import { Link } from "react-router-dom";
+import Picturenav from "../../components/mainnavbar/mainnavbar"
 
 function SignUp() {
   //const [userData, setUserData] = useState([]);
@@ -50,6 +51,7 @@ function SignUp() {
 
   return (
     <div className="signUpdiv">
+      <Picturenav/>
     <form className="form-signup">
       <input
         type="name"
