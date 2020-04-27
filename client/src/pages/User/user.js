@@ -34,7 +34,7 @@ const User = () => {
 
     API.submittService(id,{
       name: serviceForm.title,
-      details: serviceForm.body,
+      details: serviceForm.details,
     })
       .then((res) => console.log(res,serviceForm))
       .catch((err) => console.log(err));
@@ -65,7 +65,7 @@ const User = () => {
           />
           <TextArea
             onChange={handleInputChange}
-            name="body"
+            name="details"
             placeholder="Extra details of the service you need(Optional)"
           />
           <FormBtn onClick={handleFormSubmit}></FormBtn>

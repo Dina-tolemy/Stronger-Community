@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const serviceSchema = new Schema({
-    title: String,
-    body: String
+    name: String,
+    details: String
 
 });
 
