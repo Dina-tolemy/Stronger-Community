@@ -8,62 +8,87 @@ const passport = require("passport");
 const validateLoginInput = require("../../validation/login");
 const validateRegisterInput = require("../../validation/signup");
 
-router.route("/submitservice/:id").post( (req, res) => {
-  const userId =req.params.id ;
+router.route("/submitservice/:id").post((req, res) => {
+  const userId = req.params.id;
   db.Service.create(req.body)
-    .then(({ _id }) => db.User.findOneAndUpdate({_id:userId}, { $push: { services: _id } }, { new: true }))
-    .then(dbUser => {
+    .then(({ _id }) =>
+      db.User.findOneAndUpdate(
+        { _id: userId },
+        { $push: { services: _id } },
+        { new: true }
+      )
+    )
+    .then((dbUser) => {
       res.json(dbUser);
     })
-    .catch(err => {
+    .catch((err) => {
       res.json(err);
     });
 });
 
-router
-.route("/getvul")
-.get(userController.finaAllVul);
-router
-  .route("/:id")
-  .get(userController.findById);
-  
-router.route("/signup").post((req, res) => {
-    // Form validation
-
-    const { errors, isValid } = validateRegisterInput(req.body);
-
-    // Check validation
-    if (!isValid) {
-      return res.status(400).json(errors);
-    }
-
-    db.User.findOne({ email: req.body.email }).then((user) => {
-      if (user) {
-        return res.status(400).json({ email: "Email already exists" });
-      } else {
-        const newUser = new db.User({
-          name: req.body.name,
-          email: req.body.email,
-          suburb: req.body.suburb,
-          phone: req.body.phone,
-          password: req.body.password,
-          userType: req.body.userType,
-        });
-
-        // Hash password before saving in database
-        bcrypt.genSalt(10, (err, salt) => {
-          bcrypt.hash(newUser.password, salt, (err, hash) => {
-            if (err) throw err;
-            newUser.password = hash;
-            newUser
-              .save()
-              .then((user) => res.json(user))
-              .catch((err) => console.log(err));
-          });
-        });
-      }
+router.route("/getMyServices/:id").get((req, res) => {
+  db.User.find({ _id: req.params.id })
+    .populate("services")
+    .then((dbUser) => {
+      res.json(dbUser);
+    })
+    .catch((err) => {
+      res.json(err);
     });
+});
+
+router.route("/Helper").get((req, res) => {
+  db.User.find({ userType: "getHelp" })
+    .populate("services")
+    .then((dbUser) => {
+      res.json(dbUser);
+    })
+    .then(console.log(res))
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
+router.route("/getvul").get(userController.finaAllVul);
+router.route("/:id").get(userController.findById);
+
+router.route("/signup").post((req, res) => {
+  // Form validation
+
+  const { errors, isValid } = validateRegisterInput(req.body);
+
+  // Check validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
+  db.User.findOne({ email: req.body.email }).then((user) => {
+    if (user) {
+      return res.status(400).json({ email: "Email already exists" });
+    } else {
+      const newUser = new db.User({
+        name: req.body.name,
+        email: req.body.email,
+        suburb: req.body.suburb,
+        phone: req.body.phone,
+        password: req.body.password,
+        userType: req.body.userType,
+      });
+
+      // Hash password before saving in database
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(newUser.password, salt, (err, hash) => {
+          if (err) throw err;
+          newUser.password = hash;
+          newUser
+            .save()
+            .then((user) => res.json(user))
+            .catch((err) => console.log(err));
+        });
+      });
+    }
   });
+});
 
 router.route("/login").post((req, res) => {
   // Form validation
@@ -100,7 +125,7 @@ router.route("/login").post((req, res) => {
           payload,
           keys.secretOrKey,
           {
-            expiresIn:  31536000, // year in seconds
+            expiresIn: 31536000, // year in seconds
           },
           (err, token) => {
             res.json({

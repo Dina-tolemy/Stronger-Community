@@ -15,5 +15,11 @@ export default {
     },
     submittService: function(id,servicedata){
       return axios.post("api/users/submitservice/"+id,servicedata)
+    },
+    getUsersWithService:function(data){
+      return axios.get("api/users/Helper",data)
+    },
+    getUserOwnService:function(id){
+      return axios.get("api/users/getMyServices/"+id)
     }
   };
