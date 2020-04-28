@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const serviceSchema = new Schema({
     name: String,
-    details: String
+    details: String,
+    isChecked:{type:Boolean,default:false}
 
 });
 

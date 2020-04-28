@@ -1,0 +1,40 @@
+.userCard {
+    background: #fff;
+    border-radius: 2px;
+    height: 150px;
+    margin: 1rem;
+    position: relative;
+    width: 150px;
+    box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+    text-align: left;
+  }
+
+  .userCard > .content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 16px;
+  }
+  
+  .userCard > .content > ul {
+    list-style-type: none;
+  }
+  
+  .userCard > .content > ul > li {
+    margin-top: 12px;
+  }
+
+  .userCard {
+    transition: transform .2s;
+    overflow: hidden;
+  }
+  
+  .userCard:hover {
+    -webkit-transform: scale(1.8);
+    -moz-transform: scale(1.8);
+    -ms-transform: scale(1.8);
+    -o-transform: scale(1.8);
+    transform: scale(1.8);
+    position: relative;
+    top:33%;
+    z-index: 1;
+  }

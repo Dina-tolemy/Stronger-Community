@@ -8,6 +8,7 @@ const passport = require("passport");
 const validateLoginInput = require("../../validation/login");
 const validateRegisterInput = require("../../validation/signup");
 
+//post route for the vul to submit a service
 router.route("/submitservice/:id").post((req, res) => {
   const userId = req.params.id;
   db.Service.create(req.body)
@@ -25,7 +26,22 @@ router.route("/submitservice/:id").post((req, res) => {
       res.json(err);
     });
 });
-
+//put route for the helper to check true to a serivce he is welling to do ..
+router.route("/chechservice/:id").put((req, res) => {
+  const serviceId = req.params.id;
+      db.Service.findOneAndUpdate(
+        { _id: serviceId },
+        { $set: { isChecked: true } },
+        { new: true }
+      )
+    .then((dbUser) => {
+      res.json(dbUser)
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+//get route for the vull to see all of the services he asked for
 router.route("/getMyServices/:id").get((req, res) => {
   db.User.find({ _id: req.params.id })
     .populate("services")
@@ -36,7 +52,17 @@ router.route("/getMyServices/:id").get((req, res) => {
       res.json(err);
     });
 });
+//delete his own service after it's been checked to true
+router.route("/deleteservice").delete((req, res) => {
+  const serviceId=req.query._id;
+  db.Service.find({ _id: serviceId })
+    .populate("user")
+    .then((dbModel) => dbModel.remove())
+    .then((dbModel) => res.json(dbModel))
+    .catch((err) => res.status(422).json(err));
+});
 
+//get route to get all the vull with their required services
 router.route("/Helper").get((req, res) => {
   db.User.find({ userType: "getHelp" })
     .populate("services")
@@ -52,19 +78,17 @@ router.route("/Helper").get((req, res) => {
 router.route("/getvul").get(userController.finaAllVul);
 router.route("/:id").get(userController.findById);
 
+//sign up route
 router.route("/signup").post((req, res) => {
-  // Form validation
 
   const { errors, isValid } = validateRegisterInput(req.body);
-
-  // Check validation
   if (!isValid) {
     return res.status(400).json(errors);
   }
 
   db.User.findOne({ email: req.body.email }).then((user) => {
     if (user) {
-      return res.status(400).json({ email: "Email already exists" });
+      return alert("This Email already exists, try another one");
     } else {
       const newUser = new db.User({
         name: req.body.name,
@@ -109,8 +133,6 @@ router.route("/login").post((req, res) => {
     if (!user) {
       return res.status(404).json({ emailnotfound: "Email not found" });
     }
-
-    // Check password
     bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {
         // User matched
@@ -119,7 +141,6 @@ router.route("/login").post((req, res) => {
           id: user.id,
           name: user.name,
         };
-
         // Sign token
         jwt.sign(
           payload,

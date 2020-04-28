@@ -14,10 +14,10 @@ export default function Login(props) {
       password: formObject.password,
     })
       .then((res) => {
-        if (res.data.userType === "getHelp") {
+        if (res.data.userType === "Helper") {
+          props.history.push("/Helper");
+        } else if (res.data.userType === "getHelp") {
           props.history.push("/" + res.data.id);
-        } else if (res.data.userType === "Helper") {
-          window.location.href = "/Helper";
         }
       })
       .catch((err) => console.log(err));

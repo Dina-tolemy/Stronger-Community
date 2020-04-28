@@ -9,15 +9,18 @@ import {
 } from "../../components/submitService/submitService";
 import { logoutUser } from "../../actions/auth";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import UserCard from "../../components/getHelpServiceCard/getHelpServicecard"
 
 const User = (props) => {
   const [user, setUser] = useState({});
   const [serviceForm, setServiceForm] = useState({});
+  const [userService,setUserService]=useState({});
 
   const { id } = useParams();
   useEffect(() => {
     API.getuserDetails(id)
       .then((res) => setUser(res.data))
+      .then(getUserDetailwithservice)
       .catch((err) => console.log(err));
   }, []);
 
@@ -46,7 +49,8 @@ const User = (props) => {
 
   function getUserDetailwithservice() {
     API.getUserOwnService(id)
-      .then((res) => console.log(res))
+      .then((res) =>setUserService(res.data[0].services))
+      .then(console.log(userService))
       .catch((err) => console.log(err));
   }
   // function getAllVul()
@@ -75,8 +79,19 @@ const User = (props) => {
             name="details"
             placeholder="Extra details of the service you need(Optional)"
           />
-          <FormBtn onClick={handleFormSubmit}></FormBtn>
+            <FormBtn onClick={handleFormSubmit}></FormBtn>
         </form>
+        {<br></br>}
+        <div>
+        <h1 className="greetingUser">Your current required services</h1>
+        
+         <UserCard
+         name={userService.name}
+         id={userService.id}
+         key={userService.id}
+         details={userService.details}
+         />
+       
         <button onClick={getvul}>test getting all vul data</button>
         <button onClick={getAllVUllWithService}>
           test getting all vul with service
@@ -84,6 +99,7 @@ const User = (props) => {
         <button onClick={getUserDetailwithservice}>
           test userDetails with service route
         </button>
+        </div>
       </div>
     </div>
   );

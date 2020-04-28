@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import API from "../../utils/API";
 
 const Helper = (props) => {
+  const [vulUser, setvulUser] = useState({});
+
+  
   useEffect(() => {
     API.getUsersWithService()
       .then((res) => console.log(res))
@@ -13,7 +16,7 @@ const Helper = (props) => {
   //function to get all vul with theie required services
   function getAllVUllWithService() {
     API.getUsersWithService()
-      .then((res) => console.log(res))
+      .then((res) => setvulUser(res.data))
       .catch((err) => console.log(err));
   }
 
