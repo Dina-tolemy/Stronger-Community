@@ -63,8 +63,8 @@ router.route("/deleteservice").delete((req, res) => {
     .catch((err) => res.status(422).json(err));
 });
 //get route to search for users in one suburb
-router.route("suburbsearch").get((sub, res) => {
-  db.User.find({ suburb: sub })
+router.route("suburbsearch").get((req, res) => {
+  db.User.find({ suburb: req.body })
     .populate("services")
     .then((dbUser) => res.json(dbUser))
     .catch((err) => console.log(err));

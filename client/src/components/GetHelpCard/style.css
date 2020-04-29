@@ -1,10 +1,10 @@
 .allvullCard {
     background: #fff;
     border-radius: 2px;
-    height: 180px;
+    height: 280px;
     margin: 1rem;
     position: relative;
-    width: 150px;
+    width: 200px;
     box-shadow: 0 3px 6px #999, 0 3px 6px #999;
     text-align: left;
   }
@@ -24,8 +24,7 @@
   }
 
   .allvullCard {
-    transition: transform .2s;
-    overflow: hidden;
+    overflow: auto;
   }
   
   .allvullCard:hover {

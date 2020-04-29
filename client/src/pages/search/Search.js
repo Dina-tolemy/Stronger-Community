@@ -8,7 +8,7 @@ import "./style.css";
 const Search = (props) => {
 
   const [search,setSearch]=useState("");
-  const [searchResult,setSearchResult]=useState({});
+  const [searchResult,setSearchResult]=useState([]);
 
   useEffect(() => {
     if (!search) {
@@ -23,15 +23,15 @@ const Search = (props) => {
         if (res.data.status === "error") {
           throw new Error(res.data.message);
         }
-        setSearchResult(res.data)
+        setSearchResult(res)
         console.log(searchResult)
       })
       .catch(err => console.log(err));
-  }, [search]);
+  }, []);
 
   const handleInputChange = event => {
     setSearch(event.target.value);
-    console.log(search)
+    console.log("we are searching for "+search)
   };
 
 

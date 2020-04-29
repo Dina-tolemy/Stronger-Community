@@ -3,10 +3,11 @@ import { logoutUser } from "../../actions/auth";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import API from "../../utils/API";
 import GetHelpCard from "../../components/GetHelpCard/GetHelpCard";
-import Search from "../search/Search"
+import Search from "../search/Search";
+import Wrapper from "../../components/wrapper/wrapper";
 
 const Helper = (props) => {
-  const [vulUser, setvulUser] = useState({});
+  const [vulUser, setvulUser] = useState([]);
 
   useEffect(() => {
     getAllVUllWithService();
@@ -24,16 +25,7 @@ const Helper = (props) => {
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   }
-  /*    {vulUser.map((user) => (
-          <GetHelpCard
-            id={user.id}
-            key={user.id}
-            name={user.name}
-            suburb={user.suburb}
-            email={user.email}
-            phone={user.phone}
-          />
-        ))} */
+  /*  */
   return (
     <div>
       <div className="sidenav">
@@ -42,11 +34,30 @@ const Helper = (props) => {
         <Link to="/" onClick={logoutUser}>
           Logout
         </Link>
-      
       </div>
       <div className="mainPage">
         <h1 className="greetingUser">Welcome Back</h1>
-      
+        <Wrapper>
+          {vulUser.map((user) => (
+            <GetHelpCard
+              id={user.id}
+              key={user.id}
+              name={user.name}
+              suburb={user.suburb}
+              email={user.email}
+              phone={user.phone}
+              services={user.services.map((service) => (
+                <div>
+                  <p>
+                    <strong>{service.name}</strong>
+                    <input type="checkbox" />
+                  </p>
+                  <p>{service.details} </p>
+                </div>
+              ))}
+            />
+          ))}
+        </Wrapper>
         <button onClick={getvul}>test getting all vul data</button>
         <button onClick={getAllVUllWithService}>
           test getting all vul with service

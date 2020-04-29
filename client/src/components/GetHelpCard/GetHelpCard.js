@@ -3,6 +3,8 @@ import "./style.css";
 
 function GetHelpCard(props) {
   return (
+   
+    <div className="col-sm-12  col-md-6  col-lg-4">
     <div className="card allvullCard">
       <div className="content">
         <ul>
@@ -21,13 +23,11 @@ function GetHelpCard(props) {
           <li>
             <strong>Required services</strong>
           </li>
-          <ul>
             <li>{props.services}</li>
-            <input type="checkbox" onChange={props.handleCheck} />
-          </ul>
         </ul>
+        </div>
       </div>
-    </div>
+      </div>
   );
 }
 

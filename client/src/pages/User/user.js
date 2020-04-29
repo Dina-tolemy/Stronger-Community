@@ -14,7 +14,7 @@ import UserCard from "../../components/getHelpServiceCard/getHelpServicecard"
 const User = (props) => {
   const [user, setUser] = useState({});
   const [serviceForm, setServiceForm] = useState({});
-  const [userService,setUserService]=useState({});
+  const [userService,setUserService]=useState([]);
 
   const { id } = useParams();
   useEffect(() => {
@@ -59,6 +59,11 @@ const User = (props) => {
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   }
+  /** <button onClick={getvul}>test getting all vul data</button>
+        <button onClick={getAllVUllWithService}>
+          test getting all vul with service
+        </button>
+       */
   return (
     <div className="userMainDiv">
       <div className="sidenav">
@@ -84,19 +89,17 @@ const User = (props) => {
         {<br></br>}
         <div>
         <h1 className="greetingUser">Your current required services</h1>
-        
+        {userService.map((service) => (
          <UserCard
-         name={userService.name}
-         id={userService.id}
-         key={userService.id}
-         details={userService.details}
+         
+         id={service.id}
+         key={service.id}
+         details={service.details}
+         name={service.name}
+         isChecked={service.isChecked}
          />
-       
-        <button onClick={getvul}>test getting all vul data</button>
-        <button onClick={getAllVUllWithService}>
-          test getting all vul with service
-        </button>
-        <button onClick={getUserDetailwithservice}>
+        ))}
+         <button onClick={getUserDetailwithservice}>
           test userDetails with service route
         </button>
         </div>
