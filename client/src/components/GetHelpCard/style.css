@@ -1,39 +1,38 @@
 .allvullCard {
-    background: #fff;
-    border-radius: 2px;
-    height: 300px;
-    margin: 1rem;
-    position: relative;
-    width: 240px;
-    box-shadow:0 3px 6px teal, 0 3px 6px teal;
-    text-align: left;
-  }
+  background: #fff;
+  border-radius: 2px;
+  height: 300px;
+  margin: 1rem;
+  position: relative;
+  width: 240px;
+  box-shadow: 0 3px 6px teal, 0 3px 6px teal;
+  text-align: left;
+}
 
-  .allvullCard > .content {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    font-size: 16px;
-  }
-  
-  .allvullCard > .content > ul {
-    list-style-type: none;
-  }
-  
-  .allvullCard > .content > ul > li {
-    margin-top: 10px;
-  }
+.allvullCard > .content {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 16px;
+}
 
-  .allvullCard {
-    overflow: auto;
-  }
-  
-  .allvullCard:hover {
-    -webkit-transform: scale(1.8);
-    -moz-transform: scale(1.8);
-    -ms-transform: scale(1.8);
-    -o-transform: scale(1.8);
-    transform: scale(1.8);
-    position: relative;
-    top:33%;
-    z-index: 1;
-  }
+.allvullCard > .content > ul {
+  list-style-type: none;
+}
+
+.allvullCard > .content > ul > li {
+  margin-top: 10px;
+}
+
+.allvullCard {
+  overflow: auto;
+}
+
+.allvullCard:hover {
+  -webkit-transform: scale(1.8);
+  -moz-transform: scale(1.8);
+  -ms-transform: scale(1.8);
+  -o-transform: scale(1.8);
+  transform: scale(1.8);
+  position: relative;
+  z-index: 1;
+}
