@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuth";
 import Helper from "./pages/helper/Helper";
+import Search from "./pages/search/Search";
 //import store from "./store";
 
 import { setCurrentUser, logoutUser } from "./actions/auth";
@@ -26,8 +27,9 @@ function App() {
       <Switch>
         <Route exact strict path="/" component={Login} />
         <Route exact strict path="/signup" component={Signup} />
-        <Route exact strict path="/:id" component={User} />
         <Route exact strict path="/Helper" component={Helper} />
+        <Route exact strict path="/Search" component={Search}/>
+        <Route exact strict path="/:id" component={User} />
       </Switch>
     </Router>
   );

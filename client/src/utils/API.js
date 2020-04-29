@@ -21,5 +21,11 @@ export default {
     },
     getUserOwnService:function(id){
       return axios.get("api/users/getMyServices/"+id)
+    },
+    getUsersinSuburb:function(data){
+      return axios.get("api/users/suburbsearch",data)
+    },
+    chechService:function(id,data){
+      return axios.put("api/users//chechservice/"+id,data)
     }
   };

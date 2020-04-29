@@ -26,16 +26,17 @@ router.route("/submitservice/:id").post((req, res) => {
       res.json(err);
     });
 });
+
 //put route for the helper to check true to a serivce he is welling to do ..
 router.route("/chechservice/:id").put((req, res) => {
   const serviceId = req.params.id;
-      db.Service.findOneAndUpdate(
-        { _id: serviceId },
-        { $set: { isChecked: true } },
-        { new: true }
-      )
+  db.Service.findOneAndUpdate(
+    { _id: serviceId },
+    { $set: { isChecked: true } },
+    { new: true }
+  )
     .then((dbUser) => {
-      res.json(dbUser)
+      res.json(dbUser);
     })
     .catch((err) => {
       res.json(err);
@@ -54,12 +55,19 @@ router.route("/getMyServices/:id").get((req, res) => {
 });
 //delete his own service after it's been checked to true
 router.route("/deleteservice").delete((req, res) => {
-  const serviceId=req.query._id;
+  const serviceId = req.body._id;
   db.Service.find({ _id: serviceId })
     .populate("user")
     .then((dbModel) => dbModel.remove())
     .then((dbModel) => res.json(dbModel))
     .catch((err) => res.status(422).json(err));
+});
+//get route to search for users in one suburb
+router.route("suburbsearch").get((sub, res) => {
+  db.User.find({ suburb: sub })
+    .populate("services")
+    .then((dbUser) => res.json(dbUser))
+    .catch((err) => console.log(err));
 });
 
 //get route to get all the vull with their required services
@@ -80,7 +88,6 @@ router.route("/:id").get(userController.findById);
 
 //sign up route
 router.route("/signup").post((req, res) => {
-
   const { errors, isValid } = validateRegisterInput(req.body);
   if (!isValid) {
     return res.status(400).json(errors);
