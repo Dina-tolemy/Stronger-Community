@@ -9,7 +9,8 @@ import {
 } from "../../components/submitService/submitService";
 import { logoutUser } from "../../actions/auth";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import UserCard from "../../components/getHelpServiceCard/getHelpServicecard"
+import UserCard from "../../components/getHelpServiceCard/getHelpServicecard";
+import Wrapper from "../../components/wrapper/wrapper"
 
 const User = (props) => {
   const [user, setUser] = useState({});
@@ -88,7 +89,8 @@ const User = (props) => {
         </form>
         {<br></br>}
         <div>
-        <h1 className="greetingUser">Your current required services</h1>
+        <h1 className="greetingUser">My current services</h1>
+        <Wrapper>
         {userService.map((service) => (
          <UserCard
          
@@ -99,6 +101,7 @@ const User = (props) => {
          isChecked={service.isChecked}
          />
         ))}
+        </Wrapper>
          <button onClick={getUserDetailwithservice}>
           test userDetails with service route
         </button>

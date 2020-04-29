@@ -47,9 +47,9 @@ const Helper = (props) => {
               email={user.email}
               phone={user.phone}
               services={user.services.map((service) => (
-                <div>
+                <div id={service.id}>
                   <p>
-                    <strong>{service.name}</strong>
+                    <strong>{service.name} </strong>
                     <input type="checkbox" />
                   </p>
                   <p>{service.details} </p>

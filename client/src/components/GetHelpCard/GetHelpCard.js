@@ -8,22 +8,22 @@ function GetHelpCard(props) {
     <div className="card allvullCard">
       <div className="content">
         <ul>
-          <li>
-            <strong>{props.name}</strong>
+          <li id="liName">
+            <strong>Name: </strong>{props.name}
           </li>
-          <li>
-            <strong>{props.suburb}</strong>
+          <li id="liSuburb">
+            <strong>Suburb: </strong>{props.suburb}
           </li>
-          <li>
-            <strong>{props.phone}</strong>
+          <li id="liPhone">
+            <strong>Phone: </strong>{props.phone}
           </li>
-          <li>
-            <strong> {props.email}</strong>
+          <li id="liEmail">
+            <strong>Email: </strong>{props.email}
           </li>
-          <li>
-            <strong>Required services</strong>
+          <li id="liService">
+            <strong>Required services: </strong>
           </li>
-            <li>{props.services}</li>
+            {props.services}
         </ul>
         </div>
       </div>

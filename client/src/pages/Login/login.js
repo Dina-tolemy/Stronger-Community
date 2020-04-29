@@ -35,7 +35,9 @@ export default function Login(props) {
   return (
     <div className="mainPagediv">
       <Picturenav />
+      <h2 className="signInTitle">Sign in to Stronger Community</h2>
       <form className="form-signin">
+       
         <p>
           Don't have an account <a href="/signup">Sign up Here</a>
         </p>

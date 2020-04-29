@@ -33,4 +33,12 @@
     background-color: teal;
     color: whitesmoke;
   }
+  .signInTitle{
+    text-align: center;
+    margin-top: 150px;
+    font-family: monospace;
+    font-weight: bolder;
+    color: teal;
+    font-size: 30px;
+  }
   
