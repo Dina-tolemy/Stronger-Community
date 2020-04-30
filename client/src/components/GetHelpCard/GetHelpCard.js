@@ -4,7 +4,7 @@ import "./style.css";
 function GetHelpCard(props) {
   return (
    
-    <div className="col-sm-12  col-md-6  col-lg-4">
+    <div className="col-sm-12  col-md-6  col-lg-3">
     <div className="card allvullCard">
       <div className="content">
         <ul>

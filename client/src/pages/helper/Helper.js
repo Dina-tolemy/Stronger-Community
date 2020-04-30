@@ -43,9 +43,11 @@ const Helper = (props) => {
         <h4 className="timeMoment">
           <Moment format="DD/MM/YY">{Date.now()}</Moment>
         </h4>
-        <Link to="/Helper">All people with required services</Link>
+        <br></br>
+        <Link to="/Helper">All people</Link>
         <Link to="/Search">Search By Suburb</Link>
         <Link to="/" onClick={logoutUser}>
+          {" "}
           Logout
         </Link>
       </div>
@@ -72,10 +74,6 @@ const Helper = (props) => {
             />
           ))}
         </Wrapper>
-        <button onClick={getvul}>test getting all vul data</button>
-        <button onClick={getAllVUllWithService}>
-          test getting all vul with service
-        </button>
       </div>
     </div>
   );

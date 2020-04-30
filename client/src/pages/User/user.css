@@ -5,7 +5,7 @@
     font-family: 'Times New Roman', Times, serif;
   }
   .greetingUser{
-    color: #111;
+    color: rgb(12, 73, 97);
     background-color: #f1f1f1;
     margin:5px;
     text-align: center;
@@ -19,7 +19,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: rgb(11, 59, 78);
     overflow-x: hidden;
     padding-top: 20px;
     font-family: 'Times New Roman', Times, serif;
@@ -31,6 +31,7 @@
     font-size: 25px;
     color: #818181;
     display: block;
+    float: left;
   }
   
   .sidenav a:hover {
@@ -41,7 +42,10 @@
     text-decoration: none;
     font-size: 25px;
     color: #818181;
-    display: block;
+    float: left;
+    position: relative;
+    margin-bottom: 10px;
+    
   }
 
   .timeMoment :hover{

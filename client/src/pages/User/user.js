@@ -58,33 +58,23 @@ const User = (props) => {
 
   function deleteService(id) {
     API.deleteService(id)
-      .then(res => (setUserService(res.data[0].services)))
-      .catch(err => console.log(err));
-  }
-  // function getAllVul()
-  function getvul(event) {
-    API.getVulDetails()
-      .then((res) => console.log(res))
+      .then((res) => setUserService(res.data[0].services))
       .catch((err) => console.log(err));
   }
-  /** <button onClick={getvul}>test getting all vul data</button>
-        <button onClick={getAllVUllWithService}>
-          test getting all vul with service
-        </button>
-       */
   return (
     <div className="userMainDiv">
       <div className="sidenav">
-       
+      <h4 className="timeMoment">
+          <Moment format="HH:MM">{Date.now()}</Moment>
+        </h4>
+        <h4 className="timeMoment">
+          <Moment format="DD/MM/YY">{Date.now()}</Moment>
+        </h4>
+        <br></br>
         <Link to="/" onClick={logoutUser}>
           Logout
         </Link>
-        <h4 className="timeMoment">
-          <Moment format="HH:MM">{Date.now()}</Moment>
-        </h4>
-        <h4  className="timeMoment">
-          <Moment format="DD/MM/YY">{Date.now()}</Moment>
-        </h4>
+       
       </div>
       <div className="mainPage">
         <h1 className="greetingUser">Welcome: {user.name}</h1>
@@ -107,6 +97,7 @@ const User = (props) => {
           <Wrapper>
             {userService.map((service) => (
               <UserCard
+                deleteService={deleteService}
                 id={service.id}
                 key={service.id}
                 details={service.details}

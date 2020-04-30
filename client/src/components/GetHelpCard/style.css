@@ -4,15 +4,17 @@
   height: 300px;
   margin: 1rem;
   position: relative;
-  width: 240px;
+  width: 250px;
   box-shadow: 0 3px 6px teal, 0 3px 6px teal;
   text-align: left;
+  margin-bottom: 50px;
 }
 
 .allvullCard > .content {
-  padding-left: 1rem;
+  padding-left: 1px;
   padding-right: 1rem;
   font-size: 16px;
+  color: teal;
 }
 
 .allvullCard > .content > ul {
@@ -34,7 +36,7 @@
   -o-transform: scale(1.8);
   transform: scale(1.8);
   position: relative;
-  top:30%;
+  top:28%;
  
   z-index: 1;
 }
