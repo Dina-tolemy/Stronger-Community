@@ -6,15 +6,15 @@ function UserCard(props) {
         <div className="col-sm-12  col-md-6  col-lg-4">
           <div className="card userCard">
             <div className="content">
-            <span className="remove" >𝘅</span>
-              <ul>
+            <span className="remove" style={{ cursor: 'pointer'}} >𝘅</span>
+              <ul style={{color: props.isChecked ? "lightgrey" : "teal" }}>
                 <li>
                   <strong>{props.name}</strong> 
                 </li>
                 <li>
-                  <strong>{props.details}</strong>
+                  {props.details}
                 </li>
-                <li>{props.isChecked}</li>
+                <li>{props.isChecked} </li>
               </ul>
              
             </div>

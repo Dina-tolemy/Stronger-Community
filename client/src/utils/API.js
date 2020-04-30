@@ -23,9 +23,12 @@ export default {
       return axios.get("api/users/getMyServices/"+id)
     },
     getUsersinSuburb:function(data){
-      return axios.get("api/users/suburbsearch",data)
+      return axios.get("api/users/search/suburbsearch",data)
     },
-    chechService:function(id,data){
-      return axios.put("api/users//chechservice/"+id,data)
+    chechService:function(data){
+      return axios.put("api/users/checkservice",data)
+    },
+    deleteService:function(id){
+      return axios.delete("api/users/deleteservice",id)
     }
   };

@@ -28,8 +28,9 @@ router.route("/submitservice/:id").post((req, res) => {
 });
 
 //put route for the helper to check true to a serivce he is welling to do ..
-router.route("/chechservice/:id").put((req, res) => {
-  const serviceId = req.params.id;
+router.route("/checkservice").put((req, res) => {
+  //const serviceId = req.params.id;
+  const serviceId = req.body._id;
   db.Service.findOneAndUpdate(
     { _id: serviceId },
     { $set: { isChecked: true } },
@@ -63,10 +64,14 @@ router.route("/deleteservice").delete((req, res) => {
     .catch((err) => res.status(422).json(err));
 });
 //get route to search for users in one suburb
-router.route("suburbsearch").get((req, res) => {
-  db.User.find({ suburb: req.body })
+router.route("/search/suburbsearch").get((req, res) => {
+  
+  const userSuburb = req.body.suburb;
+  console.log(req.query);
+  db.User.find({suburb: userSuburb})
     .populate("services")
     .then((dbUser) => res.json(dbUser))
+  //  .then(console.log(res))
     .catch((err) => console.log(err));
 });
 

@@ -36,6 +36,17 @@
   .sidenav a:hover {
     color: #f1f1f1;
   }
+  .timeMoment{
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+
+  .timeMoment :hover{
+    color: #f1f1f1;
+  }
   
   
   @media screen and (max-height: 450px) {

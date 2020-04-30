@@ -5,9 +5,11 @@ import API from "../../utils/API";
 import GetHelpCard from "../../components/GetHelpCard/GetHelpCard";
 import Search from "../search/Search";
 import Wrapper from "../../components/wrapper/wrapper";
+import Moment from "react-moment";
 
 const Helper = (props) => {
   const [vulUser, setvulUser] = useState([]);
+  const [serviceId, setserviceId] = useState("");
 
   useEffect(() => {
     getAllVUllWithService();
@@ -20,6 +22,12 @@ const Helper = (props) => {
       .catch((err) => console.log(err));
   }
 
+  function checkuserService() {
+    API.chechService({})
+      .then((res) => setvulUser(res.data))
+      .catch((err) => console.log(err));
+  }
+
   function getvul(event) {
     API.getVulDetails()
       .then((res) => console.log(res.data))
@@ -27,8 +35,14 @@ const Helper = (props) => {
   }
   /*  */
   return (
-    <div>
+    <div className="helperMainDiv">
       <div className="sidenav">
+        <h4 className="timeMoment">
+          <Moment format="HH:MM">{Date.now()}</Moment>
+        </h4>
+        <h4 className="timeMoment">
+          <Moment format="DD/MM/YY">{Date.now()}</Moment>
+        </h4>
         <Link to="/Helper">All people with required services</Link>
         <Link to="/Search">Search By Suburb</Link>
         <Link to="/" onClick={logoutUser}>

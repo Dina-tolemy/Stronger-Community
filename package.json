@@ -28,9 +28,11 @@
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
+    "moment": "^2.24.0",
     "mongoose": "^5.3.16",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "react-moment": "^0.9.7",
     "validator": "^13.0.0",
     "validators": "^0.3.1"
   }

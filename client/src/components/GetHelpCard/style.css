@@ -34,5 +34,7 @@
   -o-transform: scale(1.8);
   transform: scale(1.8);
   position: relative;
+  top:30%;
+ 
   z-index: 1;
 }

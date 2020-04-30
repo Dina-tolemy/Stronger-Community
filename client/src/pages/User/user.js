@@ -10,12 +10,13 @@ import {
 import { logoutUser } from "../../actions/auth";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import UserCard from "../../components/getHelpServiceCard/getHelpServicecard";
-import Wrapper from "../../components/wrapper/wrapper"
+import Wrapper from "../../components/wrapper/wrapper";
+import Moment from "react-moment";
 
 const User = (props) => {
   const [user, setUser] = useState({});
   const [serviceForm, setServiceForm] = useState({});
-  const [userService,setUserService]=useState([]);
+  const [userService, setUserService] = useState([]);
 
   const { id } = useParams();
   useEffect(() => {
@@ -50,9 +51,15 @@ const User = (props) => {
 
   function getUserDetailwithservice() {
     API.getUserOwnService(id)
-      .then((res) =>setUserService(res.data[0].services))
+      .then((res) => setUserService(res.data[0].services))
       .then(console.log(userService))
       .catch((err) => console.log(err));
+  }
+
+  function deleteService(id) {
+    API.deleteService(id)
+      .then(res => (setUserService(res.data[0].services)))
+      .catch(err => console.log(err));
   }
   // function getAllVul()
   function getvul(event) {
@@ -68,9 +75,16 @@ const User = (props) => {
   return (
     <div className="userMainDiv">
       <div className="sidenav">
+       
         <Link to="/" onClick={logoutUser}>
           Logout
         </Link>
+        <h4 className="timeMoment">
+          <Moment format="HH:MM">{Date.now()}</Moment>
+        </h4>
+        <h4  className="timeMoment">
+          <Moment format="DD/MM/YY">{Date.now()}</Moment>
+        </h4>
       </div>
       <div className="mainPage">
         <h1 className="greetingUser">Welcome: {user.name}</h1>
@@ -85,26 +99,22 @@ const User = (props) => {
             name="details"
             placeholder="Extra details of the service you need(Optional)"
           />
-            <FormBtn onClick={handleFormSubmit}></FormBtn>
+          <FormBtn onClick={handleFormSubmit}></FormBtn>
         </form>
         {<br></br>}
         <div>
-        <h1 className="greetingUser">My current services</h1>
-        <Wrapper>
-        {userService.map((service) => (
-         <UserCard
-         
-         id={service.id}
-         key={service.id}
-         details={service.details}
-         name={service.name}
-         isChecked={service.isChecked}
-         />
-        ))}
-        </Wrapper>
-         <button onClick={getUserDetailwithservice}>
-          test userDetails with service route
-        </button>
+          <h1 className="greetingUser">My current services</h1>
+          <Wrapper>
+            {userService.map((service) => (
+              <UserCard
+                id={service.id}
+                key={service.id}
+                details={service.details}
+                name={service.name}
+                isChecked={service.isChecked}
+              />
+            ))}
+          </Wrapper>
         </div>
       </div>
     </div>

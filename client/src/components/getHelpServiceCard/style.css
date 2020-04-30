@@ -7,6 +7,7 @@
     width: 200px;
     box-shadow: 0 3px 6px teal, 0 3px 6px teal;
     text-align: left;
+    margin-top: 10px;
   }
 
   .userCard > .content {
@@ -29,12 +30,12 @@
   }
   
   .userCard:hover {
-    -webkit-transform: scale(1.5);
-    -moz-transform: scale(1.5);
-    -ms-transform: scale(1.5);
-    -o-transform: scale(1.5);
-    transform: scale(1.5);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
     position: relative;
-    top:33%;
+    top:5%;
     z-index: 1;
   }
