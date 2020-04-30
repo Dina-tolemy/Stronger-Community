@@ -9,7 +9,7 @@ import Moment from "react-moment";
 
 const Helper = (props) => {
   const [vulUser, setvulUser] = useState([]);
-  const [serviceId, setserviceId] = useState("");
+  const [services, setservice] = useState([]);
 
   useEffect(() => {
     getAllVUllWithService();
@@ -22,18 +22,23 @@ const Helper = (props) => {
       .catch((err) => console.log(err));
   }
 
-  function checkuserService() {
-    API.chechService({})
-      .then((res) => setvulUser(res.data))
-      .catch((err) => console.log(err));
+  function checkuserService(id) {
+    API.getAllServices().then((res) => {
+      setservice(res.data);
+      console.log(res);
+      const updatedservice = services.filter((service) =>service.id==id); 
+        API.chechService({ id: updatedservice.id })
+          .then((res) => console.log(res.data))
+          .catch((err) => console.log(err));
+    });
   }
-
+  /*
   function getvul(event) {
     API.getVulDetails()
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   }
-  /*  */
+  */
   return (
     <div className="helperMainDiv">
       <div className="sidenav">
@@ -56,8 +61,8 @@ const Helper = (props) => {
         <Wrapper>
           {vulUser.map((user) => (
             <GetHelpCard
-              id={user.id}
               key={user.id}
+              id={user.id}
               name={user.name}
               suburb={user.suburb}
               email={user.email}
@@ -65,10 +70,14 @@ const Helper = (props) => {
               services={user.services.map((service) => (
                 <div id={service.id}>
                   <p>
-                    <strong>{service.name} </strong>
-                    <input type="checkbox" />
+                    <strong>{service.name}</strong>{" "}
+                    <input
+                      type="checkbox"
+                      onChange={() => checkuserService(service.id)}
+                    />
+                    {<br></br>}
+                    {service.details}
                   </p>
-                  <p>{service.details} </p>
                 </div>
               ))}
             />

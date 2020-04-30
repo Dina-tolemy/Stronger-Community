@@ -30,5 +30,8 @@ export default {
     },
     deleteService:function(id){
       return axios.delete("api/users/deleteservice",id)
+    },
+    getAllServices:function(data){
+      return axios.get("api/users/getAllServices",data)
     }
   };

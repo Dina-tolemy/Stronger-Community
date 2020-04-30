@@ -26,14 +26,23 @@ router.route("/submitservice/:id").post((req, res) => {
       res.json(err);
     });
 });
-
+//get all services..
+router.route("/getAllServices").get((req,res)=>{
+  db.Service.find(req.query)
+  .then((dbUser) => {
+    res.json(dbUser);
+  })
+  .catch((err) => {
+    res.json(err);
+  });
+})
 //put route for the helper to check true to a serivce he is welling to do ..
 router.route("/checkservice").put((req, res) => {
-  //const serviceId = req.params.id;
-  const serviceId = req.body._id;
+  console.log(req.body)
+  const serviceId = req.body.id;
   db.Service.findOneAndUpdate(
     { _id: serviceId },
-    { $set: { isChecked: true } },
+    { isChecked: true },
     { new: true }
   )
     .then((dbUser) => {

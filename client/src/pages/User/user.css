@@ -5,7 +5,7 @@
     font-family: 'Times New Roman', Times, serif;
   }
   .greetingUser{
-    color: rgb(12, 73, 97);
+    color: teal;
     background-color: #f1f1f1;
     margin:5px;
     text-align: center;
@@ -19,7 +19,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgb(11, 59, 78);
+    background-color: rgb(16, 73, 95);
     overflow-x: hidden;
     padding-top: 20px;
     font-family: 'Times New Roman', Times, serif;
