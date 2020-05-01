@@ -57,7 +57,6 @@ const Helper = (props) => {
         </Link>
       </div>
       <div className="mainPage">
-        <h1 className="greetingUser">Welcome Back</h1>
         <Wrapper>
           {vulUser.map((user) => (
             <GetHelpCard

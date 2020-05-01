@@ -93,7 +93,7 @@ const User = (props) => {
         </form>
         {<br></br>}
         <div>
-          <h1 className="greetingUser">My current services</h1>
+          <h1 className="greetingUser">Services</h1>
           <Wrapper>
             {userService.map((service) => (
               <UserCard
