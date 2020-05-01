@@ -64,7 +64,7 @@ const User = (props) => {
   return (
     <div className="userMainDiv">
       <div className="sidenav">
-      <h4 className="timeMoment">
+        <h4 className="timeMoment">
           <Moment format="HH:MM">{Date.now()}</Moment>
         </h4>
         <h4 className="timeMoment">
@@ -74,7 +74,6 @@ const User = (props) => {
         <Link to="/" onClick={logoutUser}>
           Logout
         </Link>
-       
       </div>
       <div className="mainPage">
         <h1 className="greetingUser">Welcome: {user.name}</h1>
@@ -97,9 +96,9 @@ const User = (props) => {
           <Wrapper>
             {userService.map((service) => (
               <UserCard
-                deleteService={deleteService}
-                id={service.id}
                 key={service.id}
+                id={service.id}
+                deleteService={deleteService(service._id)}
                 details={service.details}
                 name={service.name}
                 isChecked={service.isChecked}

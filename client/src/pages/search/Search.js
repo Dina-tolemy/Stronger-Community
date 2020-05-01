@@ -5,34 +5,52 @@ import API from "../../utils/API";
 import Helper from "../helper/Helper";
 import "./style.css";
 import Moment from "react-moment";
+import Wrapper from "../../components/wrapper/wrapper";
+import GetHelpCard from "../../components/GetHelpCard/GetHelpCard";
 
 const Search = (props) => {
-  // const [searchResult,setSearchResult]=useState([]);
 
-  const [formObject, setFormObject] = useState({});
+ const [searchResult,setSearchResult]=useState([]);
+ const [services, setservice] = useState([]);
+  const [search, setSearch] = useState("");
+
+ useEffect(() => {
+    console.log("gogo")
+  }, [searchResult]);
 
   function handleInputChange(event) {
-    const { name, value } = event.target;
-    setFormObject({ ...formObject, [name]: value });
+    setSearch(event.target.value);
+    console.log(search)
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    API.getUsersinSuburb({
-      suburb: formObject.suburb,
-    })
-      .then((res) => console.log(res))
-      .then(console.log(formObject.suburb))
+   searchchSub() 
+  }
+  function searchchSub(){
+    API.getUsersinSuburb(search)
+      .then((res) => setSearchResult(res.data))
       .catch((err) => console.log(err));
   }
 
-  //function to get all vul with theie required services
+ //function to get all vul with theie required services
   function getAllVUllWithService() {
     API.getUsersWithService()
-      // .then((res) => setvulUser(res.data))
-      .then((res) => console.log(res.data))
+       .then((res) => console.log(res.data))
+     // .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   }
+  /* 
+  function checkuserService(id) {
+    API.getAllServices().then((res) => {
+      setservice(res.data);
+      console.log(res);
+      const updatedservice = services.filter((service) => service._id == id);
+      API.chechService({ _id: updatedservice.id })
+        .then((res) => console.log(res.data))
+        .catch((err) => console.log(err));
+    });
+  }*/
 
   return (
     <div>
@@ -57,7 +75,7 @@ const Search = (props) => {
           className="searchBar"
           type="search"
           id="inputinSearch"
-          name="suburb"
+          name="search"
           placeholder="Search by suburb"
           onChange={handleInputChange}
         />
@@ -70,6 +88,32 @@ const Search = (props) => {
           {" "}
           Search
         </button>
+
+        <Wrapper>
+          {searchResult.map((user) => (
+            <GetHelpCard
+              key={user.id}
+              id={user.id}
+              name={user.name}
+              suburb={user.suburb}
+              email={user.email}
+              phone={user.phone}
+              services={user.services.map((service) => (
+                <div key={service.id}>
+                  <p >
+                    <strong>{service.name}</strong>{" "}
+                    <input
+                    key={service.id}
+                      type="checkbox"
+                    />
+                    {<br></br>}
+                    {service.details}
+                  </p>
+                </div>
+              ))}
+            />
+          ))}
+        </Wrapper>
       </div>
     </div>
   );

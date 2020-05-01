@@ -26,10 +26,10 @@ const Helper = (props) => {
     API.getAllServices().then((res) => {
       setservice(res.data);
       console.log(res);
-      const updatedservice = services.filter((service) =>service.id==id); 
-        API.chechService({ id: updatedservice.id })
-          .then((res) => console.log(res.data))
-          .catch((err) => console.log(err));
+      const updatedservice = services.filter((service) => service._id == id);
+      API.chechService({ _id: updatedservice.id })
+        .then((res) => console.log(res.data))
+        .catch((err) => console.log(err));
     });
   }
   /*
@@ -67,12 +67,12 @@ const Helper = (props) => {
               email={user.email}
               phone={user.phone}
               services={user.services.map((service) => (
-                <div id={service.id}>
+                <div id={service.id} key={service.id}>
                   <p>
                     <strong>{service.name}</strong>{" "}
                     <input
                       type="checkbox"
-                      onChange={() => checkuserService(service.id)}
+                      onChange={() => checkuserService(service._id)}
                     />
                     {<br></br>}
                     {service.details}

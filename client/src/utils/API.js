@@ -22,14 +22,14 @@ export default {
     getUserOwnService:function(id){
       return axios.get("api/users/getMyServices/"+id)
     },
-    getUsersinSuburb:function(data){
-      return axios.get("api/users/search/suburbsearch",data)
+    getUsersinSuburb:function(suburb){
+      return axios.get("api/users/search/"+suburb)
     },
-    chechService:function(data){
-      return axios.put("api/users/checkservice",data)
+    chechService:function(id){
+      return axios.put("api/users/checkservice/"+id)
     },
     deleteService:function(id){
-      return axios.delete("api/users/deleteservice",id)
+      return axios.delete("api/users/deleteservice/"+id)
     },
     getAllServices:function(data){
       return axios.get("api/users/getAllServices",data)
