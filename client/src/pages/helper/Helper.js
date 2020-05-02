@@ -23,14 +23,9 @@ const Helper = (props) => {
   }
 
   function checkuserService(id) {
-    API.getAllServices().then((res) => {
-      setservice(res.data);
-      console.log(res);
-      const updatedservice = services.filter((service) => service._id == id);
-      API.chechService({ _id: updatedservice.id })
+      API.chechService(id)
         .then((res) => console.log(res.data))
         .catch((err) => console.log(err));
-    });
   }
   /*
   function getvul(event) {
@@ -57,17 +52,18 @@ const Helper = (props) => {
         </Link>
       </div>
       <div className="mainPage">
+      <h1 className="greetingUser">Welcome Back</h1>
         <Wrapper>
           {vulUser.map((user) => (
             <GetHelpCard
-              key={user.id}
-              id={user.id}
+              key={user._id}
+              id={user._id}
               name={user.name}
               suburb={user.suburb}
               email={user.email}
               phone={user.phone}
               services={user.services.map((service) => (
-                <div id={service.id} key={service.id}>
+                <div id={service.id} key={service._id}>
                   <p>
                     <strong>{service.name}</strong>{" "}
                     <input

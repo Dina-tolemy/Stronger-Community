@@ -92,18 +92,18 @@ const Search = (props) => {
         <Wrapper>
           {searchResult.map((user) => (
             <GetHelpCard
-              key={user.id}
-              id={user.id}
+              key={user._id}
+              id={user._id}
               name={user.name}
               suburb={user.suburb}
               email={user.email}
               phone={user.phone}
               services={user.services.map((service) => (
-                <div key={service.id}>
+                <div key={service._id}>
                   <p >
                     <strong>{service.name}</strong>{" "}
                     <input
-                    key={service.id}
+                    key={service._id}
                       type="checkbox"
                     />
                     {<br></br>}

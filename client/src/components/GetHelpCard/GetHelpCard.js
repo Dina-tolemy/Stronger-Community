@@ -26,7 +26,7 @@ function GetHelpCard(props) {
             <li id="liService">
               <strong>Required services: </strong>
             
-            {props.services}
+               {props.services}
           
               <p><strong>{props.services.name}</strong></p>
               <p>{props.services.details}</p>

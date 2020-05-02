@@ -96,8 +96,8 @@ const User = (props) => {
           <Wrapper>
             {userService.map((service) => (
               <UserCard
-                key={service.id}
-                id={service.id}
+                key={service._id}
+                id={service._id}
                 deleteService={deleteService(service._id)}
                 details={service.details}
                 name={service.name}
