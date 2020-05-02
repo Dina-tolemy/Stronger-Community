@@ -66,7 +66,7 @@ router.route("/getMyServices/:id").get((req, res) => {
 //delete his own service after it's been checked to true
 router.route("/deleteservice/:id").delete((req, res) => {
   const serviceId = req.params.id;
-  db.Service.find({ _id: serviceId })
+  db.Service.findById({ _id: serviceId })
     .populate("user")
     .then((dbModel) => dbModel.remove())
     .then((dbModel) => res.json(dbModel))

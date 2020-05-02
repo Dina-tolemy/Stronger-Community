@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import UserCard from "../../components/getHelpServiceCard/getHelpServicecard";
 import Wrapper from "../../components/wrapper/wrapper";
 import Moment from "react-moment";
+import DeleteButton from "../../components/DeleteButton/deletebutton"
 
 const User = (props) => {
   const [user, setUser] = useState({});
@@ -58,7 +59,7 @@ const User = (props) => {
 
   function deleteService(id) {
     API.deleteService(id)
-      .then((res) => setUserService(res.data[0].services))
+      .then((res) => console.log(res))
       .catch((err) => console.log(err));
   }
   return (
@@ -95,14 +96,18 @@ const User = (props) => {
           <h1 className="greetingUser">Services</h1>
           <Wrapper>
             {userService.map((service) => (
+              <div>
+              <DeleteButton  key={service._id}
+                id={service._id}
+                onClick={()=>deleteService(service._id)}/>
               <UserCard
                 key={service._id}
                 id={service._id}
-                deleteService={deleteService(service._id)}
                 details={service.details}
                 name={service.name}
                 isChecked={service.isChecked}
               />
+              </div>
             ))}
           </Wrapper>
         </div>

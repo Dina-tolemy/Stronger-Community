@@ -6,7 +6,6 @@ function UserCard(props) {
         <div className="col-sm-12  col-md-6  col-lg-4">
           <div className="card userCard">
             <div className="content">
-            <span className="remove" style={{ cursor: 'pointer'}} onClick={()=>props.deleteService} role="button" >𝘅</span>
               <ul style={{color: props.isChecked ? "lightgrey" : "teal" }}>
                 <li>
                   <strong>{props.name}</strong> 
