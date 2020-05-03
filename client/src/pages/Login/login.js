@@ -14,15 +14,17 @@ export default function Login(props) {
       password: formObject.password,
     })
       .then((res) => {
+
+        // store the token in session storage
+        sessionStorage.setItem('çurrentUserId',res.data.id)
         if (res.data.userType === "Helper") {
           props.history.push("/Helper");
         } else if (res.data.userType === "getHelp") {
-          props.history.push("/" + res.data.id);
+          props.history.push("/Main");
         }
       })
       .catch((err) => console.log(err));
   }
-
   function handleInputChange(event) {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });

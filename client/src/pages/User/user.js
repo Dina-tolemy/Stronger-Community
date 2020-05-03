@@ -17,13 +17,14 @@ import DeleteButton from "../../components/DeleteButton/deletebutton"
 const User = (props) => {
   const [user, setUser] = useState({});
   const [serviceForm, setServiceForm] = useState({});
-  const [userService, setUserService] = useState([]);
+ 
 
-  const { id } = useParams();
+  //const { id } = useParams();
+  const id= sessionStorage.getItem('çurrentUserId')
   useEffect(() => {
     API.getuserDetails(id)
       .then((res) => setUser(res.data))
-      .then(getUserDetailwithservice)
+      //.then(getUserDetailwithservice)
       .catch((err) => console.log(err));
   }, []);
 
@@ -42,26 +43,7 @@ const User = (props) => {
       .then(() => alert("Your service Is submitted"))
       .catch((err) => console.log(err));
   }
-  //function to get all vul with theie required services
-  function getAllVUllWithService() {
-    API.getUsersWithService()
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  }
-  //function to get the logged in user details with the service
-
-  function getUserDetailwithservice() {
-    API.getUserOwnService(id)
-      .then((res) => setUserService(res.data[0].services))
-      .then(console.log(userService))
-      .catch((err) => console.log(err));
-  }
-
-  function deleteService(id) {
-    API.deleteService(id)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  }
+ 
   return (
     <div className="userMainDiv">
       <div className="sidenav">
@@ -72,9 +54,16 @@ const User = (props) => {
           <Moment format="DD/MM/YY">{Date.now()}</Moment>
         </h4>
         <br></br>
+        <Link to="/Main">
+          Request service
+        </Link>
+        <Link to="/Myservice">
+          Current Services
+        </Link>
         <Link to="/" onClick={logoutUser}>
           Logout
         </Link>
+       
       </div>
       <div className="mainPage">
         <h1 className="greetingUser">Welcome: {user.name}</h1>
@@ -93,23 +82,7 @@ const User = (props) => {
         </form>
         {<br></br>}
         <div>
-          <h1 className="greetingUser">Services</h1>
-          <Wrapper>
-            {userService.map((service) => (
-              <div>
-              <DeleteButton  key={service._id}
-                id={service._id}
-                onClick={()=>deleteService(service._id)}/>
-              <UserCard
-                key={service._id}
-                id={service._id}
-                details={service.details}
-                name={service.name}
-                isChecked={service.isChecked}
-              />
-              </div>
-            ))}
-          </Wrapper>
+         
         </div>
       </div>
     </div>

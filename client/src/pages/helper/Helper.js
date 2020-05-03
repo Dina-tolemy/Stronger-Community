@@ -10,9 +10,12 @@ import Moment from "react-moment";
 const Helper = (props) => {
   const [vulUser, setvulUser] = useState([]);
   const [services, setservice] = useState([]);
-
+  const [user, setUser] = useState({});
+  const id= sessionStorage.getItem('çurrentUserId')
   useEffect(() => {
-    getAllVUllWithService();
+    API.getuserDetails(id)
+      .then((res) => setUser(res.data))
+      .then(getAllVUllWithService());
   }, [vulUser]);
 
   //function to get all vul with theie required services
@@ -23,17 +26,10 @@ const Helper = (props) => {
   }
 
   function checkuserService(id) {
-      API.chechService(id)
-        .then((res) => console.log(res.data))
-        .catch((err) => console.log(err));
-  }
-  /*
-  function getvul(event) {
-    API.getVulDetails()
+    API.chechService(id)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   }
-  */
   return (
     <div className="helperMainDiv">
       <div className="sidenav">
@@ -52,7 +48,7 @@ const Helper = (props) => {
         </Link>
       </div>
       <div className="mainPage">
-      <h1 className="greetingUser">Welcome Back</h1>
+        <h1 className="greetingUser">Welcome: {user.name}</h1>
         <Wrapper>
           {vulUser.map((user) => (
             <GetHelpCard

@@ -26,6 +26,8 @@ router.route("/submitservice/:id").post((req, res) => {
       res.json(err);
     });
 });
+
+
 //get all services..
 router.route("/getAllServices").get((req,res)=>{
   db.Service.find(req.query)
@@ -54,6 +56,10 @@ router.route("/checkservice/:id").put((req, res) => {
 });
 //get route for the vull to see all of the services he asked for
 router.route("/getMyServices/:id").get((req, res) => {
+  // check whether the current login user has the right to view or not
+
+  // compare the token, and verify the user
+
   db.User.find({ _id: req.params.id })
     .populate("services")
     .then((dbUser) => {
@@ -63,6 +69,8 @@ router.route("/getMyServices/:id").get((req, res) => {
       res.json(err);
     });
 });
+
+
 //delete his own service after it's been checked to true
 router.route("/deleteservice/:id").delete((req, res) => {
   const serviceId = req.params.id;

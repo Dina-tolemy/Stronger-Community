@@ -7,6 +7,7 @@ import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuth";
 import Helper from "./pages/helper/Helper";
 import Search from "./pages/search/Search";
+import UserServices from "./pages/Services/Services"
 //import store from "./store";
 
 import { setCurrentUser, logoutUser } from "./actions/auth";
@@ -29,7 +30,8 @@ function App() {
         <Route exact strict path="/signup" component={Signup} />
         <Route exact strict path="/Helper" component={Helper} />
         <Route exact strict path="/Search" component={Search}/>
-        <Route exact strict path="/:id" component={User} />
+        <Route exact strict path="/Main" component={User} />
+        <Route exact strict path="/Myservice" component={UserServices}/> 
       </Switch>
     </Router>
   );
