@@ -6,6 +6,7 @@ import Picturenav from "../../components/mainnavbar/mainnavbar";
 export default function Login(props) {
   const [userData, setUserData] = useState([]);
   const [formObject, setFormObject] = useState({});
+  const [error,seterror]=useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -14,16 +15,18 @@ export default function Login(props) {
       password: formObject.password,
     })
       .then((res) => {
-
         // store the token in session storage
         sessionStorage.setItem('çurrentUserId',res.data.id)
+
         if (res.data.userType === "Helper") {
           props.history.push("/Helper");
         } else if (res.data.userType === "getHelp") {
           props.history.push("/Main");
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) =>{console.log(err)
+        seterror("Wrong email or password!!")
+      })
   }
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -68,6 +71,7 @@ export default function Login(props) {
           name="password"
           required
         />
+        <p className="error"> {error}</p>
         <div className="checkbox mb-3">
           <label>
             <input type="checkbox" value="remember-me" /> Remember me

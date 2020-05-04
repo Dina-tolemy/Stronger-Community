@@ -4,18 +4,23 @@ import "./signup.css";
 //import Homenav from '../../components/homePagenav/homenav'
 //import { Link } from "react-router-dom";
 import Picturenav from "../../components/mainnavbar/mainnavbar"
+import { useForm } from "react-hook-form";
 
 function SignUp() {
   //const [userData, setUserData] = useState([]);
   const [formObject, setFormObject] = useState({});
 
+  const {  register, errors } = useForm();
+
   function handleInputChange(event) {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
-  }
+  };
+
 
   function handleSubmit(event) {
     event.preventDefault();
+   
     API.saveUserData({
       name: formObject.name,
       suburb: formObject.suburb,
@@ -44,7 +49,7 @@ function SignUp() {
       userType:"Helper"
     })
       .then(res => console.log(formObject))
-      .then(()=>alert("You Have signed up, Good for you"))
+      //.then(()=>alert("You Have signed up, Good for you"))
       .catch(err => console.log(err))
       .then(
         window.location.href = "./");
@@ -62,8 +67,13 @@ function SignUp() {
         required
         autoFocus
         onChange={handleInputChange}
-        
+        ref={register({
+          validate: value => value!==" "|| "Enter a name!"
+        })
+      }
       />
+       {errors.name && errors.name.message}
+  
       <input
         type="email"
         id="inputEmail"
@@ -72,8 +82,15 @@ function SignUp() {
         required
         autoFocus
         onChange={handleInputChange}
-        
+        ref={register({
+          required: "Required",
+          pattern: {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+            message: "invalid email address"
+          }
+        })}    
       />
+       {errors.email && errors.email.message}
       <input
         type="Suburb"
         id="inputSub"
@@ -101,8 +118,15 @@ function SignUp() {
         required
         autoFocus
         onChange={handleInputChange}
-        
+        ref={register({
+          required: "Required",
+          pattern: {
+            minLength: 6,
+            message: "Password has to be more than 6 digits"
+          }
+        })}   
       />
+      {errors.password && errors.password.message}
        <input
         type="password"
         id="inputPassword2"
@@ -111,7 +135,13 @@ function SignUp() {
         required
         autoFocus
         onChange={handleInputChange}
-        
+        ref={register({
+          required: "Required",
+          pattern: {
+            minLength: 6,
+            message: "Password has to be more than 6 digits"
+          }
+        })}   
       />
       <button
         className="btn  gethelpButton btn-block"
