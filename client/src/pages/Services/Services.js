@@ -38,6 +38,7 @@ const UserServices =(props)=>{
       function deleteService(id) {
         API.deleteService(id)
           .then((res) => console.log(res))
+          .then(getUserDetailwithservice)
           .catch((err) => console.log(err));
       }
 

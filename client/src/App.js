@@ -12,8 +12,8 @@ import UserServices from "./pages/Services/Services"
 
 import { setCurrentUser, logoutUser } from "./actions/auth";
 function App() {
-  if (localStorage.jwtToken) {
-    const token = localStorage.jwtToken;
+  if (sessionStorage.jwtToken) {
+    const token = sessionStorage.jwtToken;
     setAuthToken(token);
     const decoded = jwt_decode(token);
     setCurrentUser(decoded);
