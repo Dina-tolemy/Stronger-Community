@@ -84,7 +84,7 @@ router.route("/deleteservice/:id").delete((req, res) => {
 router.route("/search/:suburb").get((req, res) => {
   const userSuburb = req.params.suburb;
   console.log(userSuburb);
-  db.User.find({suburb: userSuburb})
+  db.User.find({suburb: userSuburb,userType:"getHelp"})
     .populate("services")
     .then((dbUser) => res.json(dbUser))
   //  .then(console.log(res))
