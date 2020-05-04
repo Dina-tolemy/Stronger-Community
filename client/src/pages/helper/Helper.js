@@ -33,22 +33,16 @@ const Helper = (props) => {
   return (
     <div className="helperMainDiv">
       <div className="sidenav">
-        <h4 className="timeMoment">
-          <Moment format="HH:MM">{Date.now()}</Moment>
-        </h4>
-        <h4 className="timeMoment">
-          <Moment format="DD/MM/YY">{Date.now()}</Moment>
-        </h4>
         <br></br>
-        <Link to="/Helper">All people</Link>
-        <Link to="/Search">Search By Suburb</Link>
+        <Link to="/Helper"><i class='fas fa-home' style={{fontSize:30}}></i></Link>
+        <Link to="/Search"> <i className='fas fa-search' style={{fontSize:30}} ></i></Link>
+        <Link to="#"> <i className='fas fa-address-card' style={{fontSize:30}}></i></Link>
         <Link to="/" onClick={logoutUser}>
           {" "}
-          Logout
+          <i class='fas fa-sign-out-alt' style={{fontSize:30}}></i>
         </Link>
       </div>
       <div className="mainPage">
-        <h1 className="greetingUser">Welcome: {user.name}</h1>
         <Wrapper>
           {vulUser.map((user) => (
             <GetHelpCard

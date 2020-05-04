@@ -8,20 +8,20 @@ function GetHelpCard(props) {
         <div className="content">
           <ul>
             <li id="liName">
-              <strong>Name: </strong>
-              {props.name}
+              <strong>{props.name}</strong>
+              
             </li>
             <li id="liSuburb">
-              <strong>Suburb: </strong>
-              {props.suburb}
+              <strong>  {props.suburb}</strong>
+            
             </li>
             <li id="liPhone">
-              <strong>Phone: </strong>
-              {props.phone}
+              <strong> {props.phone}</strong>
+             
             </li>
             <li id="liEmail">
-              <strong>Email: </strong>
-              {props.email}
+              <strong> {props.email} </strong>
+             
             </li>
             <li id="liService">
               <strong>Required services: </strong>

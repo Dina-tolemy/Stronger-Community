@@ -14,66 +14,57 @@ import Wrapper from "../../components/wrapper/wrapper";
 import Moment from "react-moment";
 import DeleteButton from "../../components/DeleteButton/deletebutton";
 
+const UserServices = (props) => {
+  const id = sessionStorage.getItem("çurrentUserId");
+  const [user, setUser] = useState({});
+  const [userService, setUserService] = useState([]);
 
-const UserServices =(props)=>{
+  useEffect(() => {
+    API.getuserDetails(id)
+      .then((res) => setUser(res.data))
+      .then(getUserDetailwithservice)
+      .catch((err) => console.log(err));
+  }, []);
 
-    const id= sessionStorage.getItem('çurrentUserId');
-    const [user, setUser] = useState({});
-    const [userService, setUserService] = useState([]);
+  function getUserDetailwithservice() {
+    API.getUserOwnService(id)
+      .then((res) => setUserService(res.data[0].services))
+      .then(console.log(userService))
+      .catch((err) => console.log(err));
+  }
+  function deleteService(id) {
+    API.deleteService(id)
+      .then((res) => console.log(res))
+      .then(getUserDetailwithservice)
+      .catch((err) => console.log(err));
+  }
 
-    useEffect(() => {
-        API.getuserDetails(id)
-          .then((res) => setUser(res.data))
-          .then(getUserDetailwithservice)
-          .catch((err) => console.log(err));
-      }, []);
-
-
-      function getUserDetailwithservice() {
-        API.getUserOwnService(id)
-          .then((res) => setUserService(res.data[0].services))
-          .then(console.log(userService))
-          .catch((err) => console.log(err));
-      }
-      function deleteService(id) {
-        API.deleteService(id)
-          .then((res) => console.log(res))
-          .then(getUserDetailwithservice)
-          .catch((err) => console.log(err));
-      }
-
-
-return(
-
+  return (
     <div>
-
-<div className="sidenav">
-        <h4 className="timeMoment">
-          <Moment format="HH:MM">{Date.now()}</Moment>
-        </h4>
-        <h4 className="timeMoment">
-          <Moment format="DD/MM/YY">{Date.now()}</Moment>
-        </h4>
-        <br></br>
+      <div className="sidenav">
+       
         <Link to="/Main">
-          Request service
+          <i className="far fa-plus-square" style={{ fontSize: 30 }}></i>
         </Link>
         <Link to="/Myservice">
-          Current Services
+          <i className="fas fa-server" style={{ fontSize: 30 }}></i>
         </Link>
+        <Link to="#"> <i className='fas fa-address-card' style={{fontSize:30}}></i></Link>
         <Link to="/" onClick={logoutUser}>
-          Logout
+          <i className="fas fa-sign-out-alt logout" style={{ fontSize: 30 }}></i>
         </Link>
       </div>
 
       <div className="mainPage">
-      <h1 className="greetingUser">{user.name}'s Current Services</h1>
-      <Wrapper>
-            {userService.map((service) => (
-              <div>
-              <DeleteButton  key={service._id}
+        <h1 className="greetingUser">{user.name}'s Current Services</h1>
+        <Wrapper>
+          {userService.map((service) => (
+            <div>
+              <DeleteButton
+                key={service._id}
                 id={service._id}
-                onClick={()=>deleteService(service._id)}/>
+                onClick={() => deleteService(service._id)}
+              />
               <UserCard
                 key={service._id}
                 id={service._id}
@@ -81,15 +72,11 @@ return(
                 name={service.name}
                 isChecked={service.isChecked}
               />
-              </div>
-            ))}
-          </Wrapper>
-
-
+            </div>
+          ))}
+        </Wrapper>
       </div>
     </div>
-)
-
-
-}
- export default UserServices;
+  );
+};
+export default UserServices;

@@ -5,7 +5,7 @@ import "./style.css";
 // That way we don't have to define them all individually
 function DeleteBtn(props) {
   return (
-    <span className="delete-btn" {...props} role="button">
+    <span className="delete-btn"   aria-label="Delete User" {...props} role="button">
       ✗
     </span>
   );

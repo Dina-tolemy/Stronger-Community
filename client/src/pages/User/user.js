@@ -47,26 +47,20 @@ const User = (props) => {
   return (
     <div className="userMainDiv">
       <div className="sidenav">
-        <h4 className="timeMoment">
-          <Moment format="HH:MM">{Date.now()}</Moment>
-        </h4>
-        <h4 className="timeMoment">
-          <Moment format="DD/MM/YY">{Date.now()}</Moment>
-        </h4>
-        <br></br>
         <Link to="/Main">
-          Request service
+        <i className='far fa-plus-square' style={{fontSize:30}}></i>
         </Link>
         <Link to="/Myservice">
-          Current Services
+        <i className='fas fa-server' style={{fontSize:30}}></i>
         </Link>
-        <Link to="/" onClick={logoutUser}>
-          Logout
-        </Link>
+        <Link to="#"> <i className='fas fa-address-card' style={{fontSize:30}}></i></Link>
+        <Link to="/" onClick={logoutUser} aria-label="logout" >
+        <i className='fas fa-sign-out-alt logout'   style={{fontSize:30}}></i>
+        </Link> 
        
       </div>
       <div className="mainPage">
-        <h1 className="greetingUser">Welcome: {user.name}</h1>
+        <h1 className="greetingUser">Add new service</h1>
         <form className="ServiceForm">
           <Input
             onChange={handleInputChange}

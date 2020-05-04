@@ -8,6 +8,8 @@
   box-shadow: 0 3px 6px teal, 0 3px 6px teal;
   text-align: left;
   margin-bottom: 50px;
+  display: grid;
+  content: normal;
 }
 
 .allvullCard > .content {
@@ -41,7 +43,10 @@
   z-index: 1;
 }
 
-
+#liName{
+  font-size: 22px;
+  text-align: center;
+}
 @media screen and (max-width: 450px) {
   .allvullCard {
     width: 150px;
