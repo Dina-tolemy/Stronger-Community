@@ -8,6 +8,7 @@ import setAuthToken from "./utils/setAuth";
 import Helper from "./pages/helper/Helper";
 import Search from "./pages/search/Search";
 import UserServices from "./pages/Services/Services"
+import Profile from "./pages/Profile/profile"
 //import store from "./store";
 
 import { setCurrentUser, logoutUser } from "./actions/auth";
@@ -32,6 +33,7 @@ function App() {
         <Route exact strict path="/Search" component={Search}/>
         <Route exact strict path="/Main" component={User} />
         <Route exact strict path="/Myservice" component={UserServices}/> 
+        <Route exact strict path="/Profile" component={Profile}/> 
       </Switch>
     </Router>
   );

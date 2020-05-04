@@ -53,7 +53,7 @@ const User = (props) => {
         <Link to="/Myservice">
         <i className='fas fa-server' style={{fontSize:30}}></i>
         </Link>
-        <Link to="#"> <i className='fas fa-address-card' style={{fontSize:30}}></i></Link>
+        <Link to="/Profile"> <i className='fas fa-address-card' style={{fontSize:30}}></i></Link>
         <Link to="/" onClick={logoutUser} aria-label="logout" >
         <i className='fas fa-sign-out-alt logout'   style={{fontSize:30}}></i>
         </Link> 

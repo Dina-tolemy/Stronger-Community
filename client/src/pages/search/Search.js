@@ -59,7 +59,7 @@ const Search = (props) => {
      <div className="sidenav">
         <Link to="/Helper"><i class='fas fa-home' style={{fontSize:30}}></i></Link>
         <Link to="/Search"> <i className='fas fa-search' style={{fontSize:30}}></i></Link>
-        <Link to="#"> <i className='fas fa-address-card' style={{fontSize:30}}></i></Link>
+        <Link to="/Profile"> <i className='fas fa-address-card' style={{fontSize:30}}></i></Link>
         <Link to="/" onClick={logoutUser}>
           {" "}
           <i class='fas fa-sign-out-alt' style={{fontSize:30}}></i>
