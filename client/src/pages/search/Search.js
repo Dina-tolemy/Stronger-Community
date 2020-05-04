@@ -102,7 +102,7 @@ const Search = (props) => {
               phone={user.phone}
               services={user.services.map((service) => (
                 <div key={service._id}>
-                  <p>
+                  <p style={{color: service.isChecked ? "lightgrey" : "teal"}}>
                     <strong>{service.name}</strong>{" "}
                     <input
                       key={service._id}

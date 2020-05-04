@@ -60,8 +60,8 @@ const Helper = (props) => {
               phone={user.phone}
               services={user.services.map((service) => (
                 <div id={service.id} key={service._id}>
-                  <p>
-                    <strong>{service.name}</strong>{" "}
+                  <p style={{color: service.isChecked ? "lightgrey" : "teal"}}>
+                    <strong>{service.name}  </strong>{" "}
                     <input
                       type="checkbox"
                       onChange={() => checkuserService(service._id)}
