@@ -1,18 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import API from "../../utils/API";
-//import "./user.css";
-import {
-  Input,
-  TextArea,
-  FormBtn,
-} from "../../components/submitService/submitService";
-import { logoutUser } from "../../actions/auth";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import UserCard from "../../components/getHelpServiceCard/getHelpServicecard";
 import Wrapper from "../../components/wrapper/wrapper";
-import Moment from "react-moment";
 import DeleteButton from "../../components/DeleteButton/deletebutton";
+import NavBar from "../../components/inNeedNavBar/inNeednavbar"
 
 const UserServices = (props) => {
   const id = sessionStorage.getItem("çurrentUserId");
@@ -41,19 +32,7 @@ const UserServices = (props) => {
 
   return (
     <div>
-      <div className="sidenav">
-       
-        <Link to="/Main">
-          <i className="far fa-plus-square" style={{ fontSize: 30 }}></i>
-        </Link>
-        <Link to="/Myservice">
-          <i className="fas fa-server" style={{ fontSize: 30 }}></i>
-        </Link>
-        <Link to="/Profile"> <i className='fas fa-address-card' style={{fontSize:30}}></i></Link>
-        <Link to="/" onClick={logoutUser}>
-          <i className="fas fa-sign-out-alt logout" style={{ fontSize: 30 }}></i>
-        </Link>
-      </div>
+      <NavBar/>
 
       <div className="mainPage">
         <h1 className="greetingUser">{user.name}'s Current Services</h1>

@@ -1,0 +1,16 @@
+.detailsButtons{
+
+    display: inline;
+    display: block;
+    border-radius: 5px;
+    margin-left: 350px;
+    width: 140px;
+
+}
+
+.detailsdiv{
+
+    margin-left: 250px;
+    position: relative;
+
+}

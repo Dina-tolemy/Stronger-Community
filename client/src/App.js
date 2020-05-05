@@ -8,7 +8,9 @@ import setAuthToken from "./utils/setAuth";
 import Helper from "./pages/helper/Helper";
 import Search from "./pages/search/Search";
 import UserServices from "./pages/Services/Services"
-import Profile from "./pages/Profile/profile"
+import Profile from "./pages/Profile/profile";
+import inNeedProfile from "./pages/inNeedprofile/inNeedprofile";
+import UserDetails from "./pages/UserDetails/UserDetails"
 //import store from "./store";
 
 import { setCurrentUser, logoutUser } from "./actions/auth";
@@ -34,6 +36,8 @@ function App() {
         <Route exact strict path="/Main" component={User} />
         <Route exact strict path="/Myservice" component={UserServices}/> 
         <Route exact strict path="/Profile" component={Profile}/> 
+        <Route exact strict path="/needProfile" component={inNeedProfile}/>
+        <Route exact strict path="/:id" component={UserDetails}/>
       </Switch>
     </Router>
   );

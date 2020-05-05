@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { logoutUser } from "../../actions/auth";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import API from "../../utils/API";
-import Helper from "../helper/Helper";
 import "./style.css";
-import Moment from "react-moment";
 import Wrapper from "../../components/wrapper/wrapper";
 import GetHelpCard from "../../components/GetHelpCard/GetHelpCard";
+
+import NavBar from "../../components/Helpernabar/HeplerNavbar";
 
 const Search = (props) => {
   const [searchResult, setSearchResult] = useState([]);
@@ -53,19 +53,31 @@ const Search = (props) => {
         .catch((err) => console.log(err));
     });
   }
+  function viewUser(id) {
+
+    console.log("hello");
+    props.history.push("/"+id);
+  }
+  // old map function
+  /**  services={user.services.map((service) => (
+                <div key={service._id}>
+                   <input
+                      key={service._id}
+                      type="checkbox"
+                      onChange={() => checkuserService(service._id)}
+                    />
+                  <p style={{color: service.isChecked ? "lightgrey" : "teal"}}>
+                    <strong>{service.name}</strong>{" "}
+                   
+                    {<br></br>}
+                    {service.details}
+                  </p>
+                </div>
+              ))} */
 
   return (
     <div>
-     <div className="sidenav">
-        <Link to="/Helper"><i class='fas fa-home' style={{fontSize:30}}></i></Link>
-        <Link to="/Search"> <i className='fas fa-search' style={{fontSize:30}}></i></Link>
-        <Link to="/Profile"> <i className='fas fa-address-card' style={{fontSize:30}}></i></Link>
-        <Link to="/" onClick={logoutUser}>
-          {" "}
-          <i class='fas fa-sign-out-alt' style={{fontSize:30}}></i>
-        </Link>
-
-      </div>
+      <NavBar />
       <div className="mainPage">
         <input
           style={{ marginTop: 10 }}
@@ -75,7 +87,7 @@ const Search = (props) => {
           name="search"
           placeholder="Search by suburb"
           onChange={handleInputChange}
-        />
+        />{" "}
         <button
           style={{ marginTop: 0 }}
           className="btn btn-lg  signInButton"
@@ -85,31 +97,14 @@ const Search = (props) => {
           {" "}
           Search
         </button>
-
         <Wrapper>
           {searchResult.map((user) => (
-            <GetHelpCard
-              key={user._id}
-              id={user._id}
-              name={user.name}
-              suburb={user.suburb}
-              email={user.email}
-              phone={user.phone}
-              services={user.services.map((service) => (
-                <div key={service._id}>
-                  <p style={{color: service.isChecked ? "lightgrey" : "teal"}}>
-                    <strong>{service.name}</strong>{" "}
-                    <input
-                      key={service._id}
-                      type="checkbox"
-                      onChange={() => checkuserService(service._id)}
-                    />
-                    {<br></br>}
-                    {service.details}
-                  </p>
-                </div>
-              ))}
-            />
+            <div>
+              <GetHelpCard key={user._id} id={user._id} name={user.name} />
+              <button class="viewButton" key={user._id} id={user._id} onClick={() => viewUser(user._id)}>
+                View
+              </button>
+            </div>
           ))}
         </Wrapper>
       </div>

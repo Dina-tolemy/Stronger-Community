@@ -6,6 +6,10 @@ import GetHelpCard from "../../components/GetHelpCard/GetHelpCard";
 import Search from "../search/Search";
 import Wrapper from "../../components/wrapper/wrapper";
 import Moment from "react-moment";
+import Tippy from "@tippy.js/react";
+import 'tippy.js/dist/tippy.css';
+import "./helper.css";
+import NavBar from "../../components/Helpernabar/HeplerNavbar"
 
 const Helper = (props) => {
   const [vulUser, setvulUser] = useState([]);
@@ -32,16 +36,7 @@ const Helper = (props) => {
   }
   return (
     <div className="helperMainDiv">
-      <div className="sidenav">
-        <br></br>
-        <Link to="/Helper"><i class='fas fa-home' style={{fontSize:30}}></i></Link>
-        <Link to="/Search"> <i className='fas fa-search' style={{fontSize:30}} ></i></Link>
-        <Link to="/Profile"> <i className='fas fa-address-card' style={{fontSize:30}}></i></Link>
-        <Link to="/" onClick={logoutUser}>
-          {" "}
-          <i class='fas fa-sign-out-alt' style={{fontSize:30}}></i>
-        </Link>
-      </div>
+      <NavBar/>
       <div className="mainPage">
         <Wrapper>
           {vulUser.map((user) => (

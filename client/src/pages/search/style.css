@@ -5,3 +5,11 @@
     margin-left: 35%;
 
 }
+
+.viewButton{
+    margin: 5px;
+    margin-left: 85px;
+    color: white;
+    background-color: teal;
+    border-radius: 5px;
+}
