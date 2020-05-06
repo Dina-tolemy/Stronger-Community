@@ -46,8 +46,9 @@ function detailsCard(props) {
               {props.email}{" "}
             </strong>
           </li>
+          <br></br>
           <li id="liService">
-            <strong style={{color:"teal"}}>Services: </strong>
+            <strong style={{color:"teal"}}>Required Services: </strong>
             {props.services}
           </li>
         </ul>

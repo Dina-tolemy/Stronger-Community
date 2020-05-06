@@ -42,7 +42,7 @@ const UserDetails = (props) => {
               email={userService.email}
               phone={userService.phone}
               services={userService?.services?.map((service) => (
-                <div>
+                <div style={{color: service.isChecked ? "lightgrey" : "grey" }}>
                   <strong>{service.name}</strong> <br></br>
                   {service.details}
                   <div className="row">
