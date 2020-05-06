@@ -67,10 +67,16 @@ router.route("/getMyServices/:id").get((req, res) => {
       res.json(err);
     });
 });
-///find services of a user 
 
-
-//get user details with services
+//Delete an account..
+router.route("/deleteaccount/:id").delete((req, res) => {
+  const serviceId = req.params.id;
+  db.User.findById({ _id: serviceId })
+    .populate("services")
+    .then((dbModel) => dbModel.remove())
+    .then((dbModel) => res.json(dbModel))
+    .catch((err) => res.status(422).json(err));
+});
 
 //delete his own service after it's been checked to true
 router.route("/deleteservice/:id").delete((req, res) => {

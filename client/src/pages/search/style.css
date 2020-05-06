@@ -13,3 +13,24 @@
     background-color: teal;
     border-radius: 5px;
 }
+.searchButton{
+    background-color: teal;
+    color: whitesmoke;
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 450px) {
+    .searchBar{
+
+        text-align: center;
+        position: relative;
+        margin-left: 18%;
+        margin: 5px;
+    
+    }
+    .searchButton{
+
+        margin-left:25% ;
+    }
+
+}

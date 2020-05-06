@@ -12,11 +12,14 @@ const Profile = (props) => {
    .then((res) => setUser(res.data));
   }, [user]);
 
-  function checkuserService(id) {
-    API.chechService(id)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
+  function DeleteUserAccount(id) {
+    API.deleteUserAccount(id)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err))
+      .then((window.location.href = "./"))
   }
+
+
   return (
     <div className="helperMainDiv">
       <NavBar />
@@ -30,7 +33,7 @@ const Profile = (props) => {
                   <li>
                     {" "}
                     <i
-                      class="far fa-envelope"
+                      className="far fa-envelope"
                       style={{ fontSize: 30, color: "teal" }}
                     >
                       {" "}
@@ -40,7 +43,7 @@ const Profile = (props) => {
                   <li>
                     {" "}
                     <i
-                      class="fas fa-phone"
+                      className="fas fa-phone"
                       style={{ fontSize: 30, color: "teal" }}
                     >
                       {" "}
@@ -50,7 +53,7 @@ const Profile = (props) => {
                   <li>
                     {" "}
                     <i
-                      class="fas fa-home"
+                      className="fas fa-home"
                       style={{ fontSize: 30, color: "teal" }}
                     >
                       {" "}
@@ -61,6 +64,13 @@ const Profile = (props) => {
                 </ul>
               </div>
             </div>
+            <button
+              className="btn-danger"
+              style={{ float: "right", margin: 6, borderRadius: 5 }}
+              onClick={()=>{DeleteUserAccount(id)}}
+            >
+              Delete account
+            </button>
           </div>
         </Wrapper>
       </div>

@@ -79,6 +79,7 @@ const Search = (props) => {
     <div>
       <NavBar />
       <div className="mainPage">
+        <div>
         <input
           style={{ marginTop: 10 }}
           className="searchBar"
@@ -90,13 +91,14 @@ const Search = (props) => {
         />{" "}
         <button
           style={{ marginTop: 0 }}
-          className="btn btn-lg  signInButton"
+          className="btn btn-lg  searchButton"
           type="submit"
           onClick={handleSubmit}
         >
           {" "}
           Search
         </button>
+        </div>
         <Wrapper>
           {searchResult.map((user) => (
             <div>

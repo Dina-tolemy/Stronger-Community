@@ -14,6 +14,7 @@ import NavBar from "../../components/inNeedNavBar/inNeednavbar"
 const User = (props) => {
   const [user, setUser] = useState({});
   const [serviceForm, setServiceForm] = useState({});
+  const[msg,setMsg]=useState("")
  
 
   //const { id } = useParams();
@@ -21,7 +22,6 @@ const User = (props) => {
   useEffect(() => {
     API.getuserDetails(id)
       .then((res) => setUser(res.data))
-      //.then(getUserDetailwithservice)
       .catch((err) => console.log(err));
   }, []);
 
@@ -37,7 +37,8 @@ const User = (props) => {
       details: serviceForm.details,
     })
       .then((res) => console.log(res, serviceForm))
-      .then(() => alert("Your service Is submitted"))
+      .then(setServiceForm({...serviceForm}))
+      .then(() => setMsg("Your service Is added successfully"))
       .catch((err) => console.log(err));
   }
  
@@ -60,10 +61,10 @@ const User = (props) => {
           <FormBtn onClick={handleFormSubmit}></FormBtn>
         </form>
         {<br></br>}
-        <div>
-         
-        </div>
       </div>
+      <div>
+         <h3 className="successMsg">{msg}</h3>
+        </div>
     </div>
   );
 };

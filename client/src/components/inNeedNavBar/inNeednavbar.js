@@ -26,7 +26,7 @@ function HelperNavBar(props) {
         </Tippy>
       </Link>
       <Link to="/" onClick={logoutUser}>
-        <i class="fas fa-sign-out-alt" style={{ fontSize: 30 }}></i>
+        <i className="fas fa-sign-out-alt" style={{ fontSize: 30 }}></i>
       </Link>
     </div>
   );

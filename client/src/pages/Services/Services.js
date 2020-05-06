@@ -3,7 +3,8 @@ import API from "../../utils/API";
 import UserCard from "../../components/getHelpServiceCard/getHelpServicecard";
 import Wrapper from "../../components/wrapper/wrapper";
 import DeleteButton from "../../components/DeleteButton/deletebutton";
-import NavBar from "../../components/inNeedNavBar/inNeednavbar"
+import NavBar from "../../components/inNeedNavBar/inNeednavbar";
+import "./style.css";
 
 const UserServices = (props) => {
   const id = sessionStorage.getItem("çurrentUserId");
@@ -32,7 +33,7 @@ const UserServices = (props) => {
 
   return (
     <div>
-      <NavBar/>
+      <NavBar />
 
       <div className="mainPage">
         <h1 className="greetingUser">{user.name}'s Current Services</h1>
@@ -54,6 +55,17 @@ const UserServices = (props) => {
             </div>
           ))}
         </Wrapper>
+        <div className="col-sm-6">
+          <div className="card noteCard">
+            <div className="card-content">
+              <strong className="notemsg">Note:</strong>
+              <p>
+                If one of your services color is faded that means it's pending now, and
+                someone will contact you soon to help you with it.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

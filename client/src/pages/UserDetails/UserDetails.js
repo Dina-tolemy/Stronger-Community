@@ -43,21 +43,21 @@ const UserDetails = (props) => {
               phone={userService.phone}
               services={userService?.services?.map((service) => (
                 <div>
-                 <strong>{service.name}</strong> <br></br>
+                  <strong>{service.name}</strong> <br></br>
                   {service.details}
-                
-                 <div className="row">
-                 <button className=" detailsButtons success btn-danger">
-                   Not now
-                 </button>
-                 <button className=" detailsButtons danger btn-success" onClick={()=>checkuserService(service._id)}>Help</button>
-                 </div>
-                 </div>
+                  <div className="row">
+                    <button
+                      disabled={service.isChecked}
+                      className=" detailsButtons danger btn-success"
+                      onClick={() => checkuserService(service._id)}
+                    >
+                      Help
+                    </button>
+                  </div>
+                </div>
               ))}
             />
           </Wrapper>
-        
-        
         </div>
       </div>
     </div>

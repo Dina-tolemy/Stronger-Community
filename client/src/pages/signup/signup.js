@@ -153,7 +153,7 @@ function SignUp() {
           }
           onClick={handleSubmit}
         >
-          Sign up for help
+         Needs Help
         </button>
         <button
           disabled={
@@ -162,7 +162,7 @@ function SignUp() {
           className="btn  helpButton btn-block"
           onClick={handleHelpersignUp}
         >
-          Sign up to help
+           Want to Help
         </button>
         <p className="mt-3 mb-3 text-muted">&copy; Stronger Comunity 2020</p>
       </form>
