@@ -14,7 +14,7 @@ function GetHelpCard(props) {
     <div className="col-sm-12  col-md-6  col-lg-4">
       <div className="card allvullCard">
         <div className="content">
-          <i class="fas fa-portrait" style={{ fontSize: 36 }}></i>
+          <i className="fas fa-portrait" style={{ fontSize: 36 }}></i>
           <strong> {props.name}</strong>
         </div>
       </div>

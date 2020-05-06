@@ -11,7 +11,6 @@ import UserServices from "./pages/Services/Services"
 import Profile from "./pages/Profile/profile";
 import inNeedProfile from "./pages/inNeedprofile/inNeedprofile";
 import UserDetails from "./pages/UserDetails/UserDetails"
-//import store from "./store";
 
 import { setCurrentUser, logoutUser } from "./actions/auth";
 function App() {

@@ -46,7 +46,7 @@ const User = (props) => {
     <div className="userMainDiv">
      <NavBar/>
       <div className="mainPage">
-        <h1 className="greetingUser">Add new service</h1>
+      <h1 className="helpermaintitle">Add new service</h1>
         <form className="ServiceForm">
           <Input
             onChange={handleInputChange}

@@ -36,7 +36,7 @@ const UserServices = (props) => {
       <NavBar />
 
       <div className="mainPage">
-        <h1 className="greetingUser">{user.name}'s Current Services</h1>
+  <h1 className="helpermaintitle">{user.name}'s required services</h1>
         <Wrapper>
           {userService.map((service) => (
             <div>

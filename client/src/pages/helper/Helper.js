@@ -38,6 +38,7 @@ const Helper = (props) => {
     <div className="helperMainDiv">
       <NavBar/>
       <div className="mainPage">
+        <h1 className="helpermaintitle">Our Community</h1>
         <Wrapper>
           {vulUser.map((user) => (
             <GetHelpCard

@@ -9,3 +9,18 @@
   margin-left: 230px;
   position: relative;
 }
+
+
+@media screen and (max-width: 450px) {
+
+  .detailsButtons {
+  
+
+    margin-left: 0px;
+    
+  }
+  .detailsdiv {
+    margin-left: 0px;
+    position: relative;
+  }
+}

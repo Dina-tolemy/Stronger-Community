@@ -7,27 +7,47 @@ import "./style.css";
 import NavBar from "../../components/Helpernabar/HeplerNavbar";
 
 const UserDetails = (props) => {
-  // const [user, setUser] = useState([]);
+  const [user, setUser] = useState({});
   const [userService, setUserService] = useState([]);
-
+  const helperId = sessionStorage.getItem("çurrentUserId");
+  const [userEmail, setUserEmail] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
-    API.getUserOwnService(id).then((res) => setUserService(res.data[0]));
-    //.then(getUserservices(id));
-    //console.log(userService);
+    API.getUserOwnService(id)
+      .then((res) => setUserService(res.data[0]))
+      .then(getCurrentHelperInfo(helperId))
+      .then(settingemailState());
   }, [userService]);
 
+  function getCurrentHelperInfo(helperId) {
+    API.getuserDetails(helperId)
+      .then((res) => setUser(res.data))
+      .then(console.log("this is the user"+user))
+      .catch((err) => console.log(err));
+  }
   function checkuserService(id) {
     API.chechService(id)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   }
-  /* function getUserservices(id){
+  function settingemailState() {
+    setUserEmail({
+      recipient: userService.email,
+      sender: user.email,
+      subject: "Help with your service",
+      text: `Hi ${userService.name} Iam ${user.name} and Iam welling to help you with 
+      your request on stronger Community this is my phone number for contact ${user.phone}`,
+    });
+  }
 
-    API.getUserOwnService(id)
-    .then((res)=>setUserService(res.data))
-  }*/
+  function sendEmail() {
+    fetch(
+      `http://127.0.0.1:3001/send-email?recipient=${userEmail.recipient}&sender=${userEmail.sender}&topic=${userEmail.subject}&text=${userEmail.text}`
+    ) //query string url
+      .catch((err) => console.error(err));
+  }
+
   return (
     <div className="helperMainDiv">
       <NavBar />
@@ -42,7 +62,9 @@ const UserDetails = (props) => {
               email={userService.email}
               phone={userService.phone}
               services={userService?.services?.map((service) => (
-                <div style={{color: service.isChecked ? "lightgrey" : "grey" }}>
+                <div
+                  style={{ color: service.isChecked ? "lightgrey" : "grey" }}
+                >
                   <strong>{service.name}</strong> <br></br>
                   {service.details}
                   <div className="row">

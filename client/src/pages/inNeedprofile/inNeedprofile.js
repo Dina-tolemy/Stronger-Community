@@ -27,6 +27,7 @@ const InNeedProfile = (props) => {
     <div className="helperMainDiv">
       <NavBar />
       <div className="mainPage">
+      <h1 className="helpermaintitle">Profile Informaion</h1>
         <Wrapper>
           <div className="col-sm-12">
             <div className="card">

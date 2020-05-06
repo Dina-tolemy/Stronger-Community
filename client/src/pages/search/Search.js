@@ -79,6 +79,7 @@ const Search = (props) => {
     <div>
       <NavBar />
       <div className="mainPage">
+      <h1 className="helpermaintitle">Search your suburb for more details</h1>
         <div>
         <input
           style={{ marginTop: 10 }}
