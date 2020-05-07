@@ -11,5 +11,13 @@
 
     .logoCard{
         background-size:contain;
+        margin-left: 200px;
+    }
+}
+@media (max-width:470px){
+
+    .logoCard{
+        background-size:contain;
+        margin-left: 30px;
     }
 }
