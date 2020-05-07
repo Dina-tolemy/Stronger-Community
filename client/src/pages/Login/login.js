@@ -6,7 +6,7 @@ import Picturenav from "../../components/mainnavbar/mainnavbar";
 export default function Login(props) {
   const [userData, setUserData] = useState([]);
   const [formObject, setFormObject] = useState({});
-  const [error,seterror]=useState("");
+  const [error, seterror] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -16,7 +16,7 @@ export default function Login(props) {
     })
       .then((res) => {
         // store the token in session storage
-        sessionStorage.setItem('çurrentUserId',res.data.id)
+        sessionStorage.setItem("çurrentUserId", res.data.id);
 
         if (res.data.userType === "Helper") {
           props.history.push("/Helper");
@@ -24,9 +24,10 @@ export default function Login(props) {
           props.history.push("/Main");
         }
       })
-      .catch((err) =>{console.log(err)
-        seterror("Wrong email or password!!")
-      })
+      .catch((err) => {
+        console.log(err);
+        seterror("Wrong email or password!!");
+      });
   }
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -40,53 +41,71 @@ export default function Login(props) {
   return (
     <div className="mainPagediv">
       <Picturenav />
-      <h2 className="signInTitle">Sign in to Stronger Community</h2>
-      <form className="form-signin">
-       
-        <p>
-          Don't have an account <a href="/signup">Sign up Here</a>
-        </p>
-        <label htmlFor="inputEmail" className="sr-only">
-          Email address
-        </label>
-        <input
-          type="email"
-          id="inputinEmail"
-          name="email"
-          onChange={handleInputChange}
-          className="form-control"
-          placeholder="Email address"
-          required
-          autoFocus
-        />
-        <label htmlFor="inputPassword" className="sr-only">
-          Password
-        </label>
-        <input
-          type="password"
-          onChange={handleInputChange}
-          id="inputinPassword"
-          className="form-control"
-          placeholder="Password"
-          name="password"
-          required
-        />
-        <p className="error"> {error}</p>
-        <div className="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me" /> Remember me
-          </label>
+      <div className="row">
+        <div className="MainPageCard card col-sm-12 col-lg-6 ">
+          <div className="card-content">
+            <h4 className="mainpageHeader">Stronger Community</h4>
+            <p className="projectDescription">
+              {" "}
+            <p>  In these difficult times we should all be there for each other.</p>
+            <p>  Here in stronger community we let you help those in need, so, if
+              you feel you can give back to your community sign in and see what
+              you can do.</p><p> On the other side if you in need for any kind of help
+              let us know so we can Help.</p>
+            </p>
+          </div>
         </div>
-        <button
-          className="btn btn-lg  signInButton btn-block"
-          type="submit"
-          onClick={handleSubmit}
-        >
-          Sign in
-        </button>
+        <div className="col-sm-12 col-lg-6">
+          <form className=" form-signin">
+            <h2 className="signInTitle">Sign in to Stronger Community</h2>
+            <p>
+              Don't have an account <a href="/signup">Sign up Here</a>
+            </p>
+            <label htmlFor="inputEmail" className="sr-only">
+              Email address
+            </label>
+            <input
+              type="email"
+              id="inputinEmail"
+              name="email"
+              onChange={handleInputChange}
+              className="form-control"
+              placeholder="Email address"
+              required
+              autoFocus
+            />
+            <label htmlFor="inputPassword" className="sr-only">
+              Password
+            </label>
+            <input
+              type="password"
+              onChange={handleInputChange}
+              id="inputinPassword"
+              className="form-control"
+              placeholder="Password"
+              name="password"
+              required
+            />
+            <p className="error"> {error}</p>
+            <div className="checkbox mb-3">
+              <label>
+                <input type="checkbox" value="remember-me" /> Remember me
+              </label>
+            </div>
+            <button
+              className="btn btn-lg  signInButton btn-block"
+              type="submit"
+              onClick={handleSubmit}
+            >
+              Sign in
+            </button>
 
-        <p className="mt-5 mb-3 text-muted">&copy; Stronger Comunity 2020</p>
-      </form>
+            <p className="mt-5 mb-3 text-muted">
+              &copy; Stronger Comunity 2020
+            </p>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

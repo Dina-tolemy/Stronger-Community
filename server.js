@@ -10,9 +10,8 @@ const sgMail = require('@sendgrid/mail');//sendgrid library to send emails
 require('dotenv').config 
 
 const API_KEY =process.env.REACT_APP_SG_API_KEY;
-console.log(API_KEY)
+//console.log(API_KEY)
 sgMail.setApiKey(API_KEY);
-
 app.use(cors()); 
 
 // Define middleware here
@@ -34,11 +33,9 @@ app.use(bodyParser.json());
 // Passport middleware
 app.use(passport.initialize());
 
-app.get('/send-email', (req,res) => {
-    
-  //Get Variables from query string in the search bar
+app.get('/send-email', (req,res) => {  
+  //Get Variables from query string 
   const { recipient, sender, topic, text } = req.query; 
-
   //Sendgrid Data Requirements
   const msg = {
       to: recipient, 
@@ -46,7 +43,6 @@ app.get('/send-email', (req,res) => {
       subject: topic,
       text: text,
   }
-
   //Send Email
   sgMail.send(msg)
   .then((msg) => console.log(text));
@@ -55,12 +51,9 @@ app.get('/send-email', (req,res) => {
 // Passport config
 require("./config/passport")(passport);
 
-
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-
-// Connect to the Mongo DB
 
 app.use(routes);
 

@@ -11,7 +11,7 @@ const UserDetails = (props) => {
   const [userService, setUserService] = useState([]);
   // const helperId = sessionStorage.getItem("çurrentUserId");
   const [userEmail, setUserEmail] = useState({
-    recipient: "dina.a.tolemy@gmail.com",
+    recipient: userService.email,
     sender: "dina.a.tolemy@gmail.com",
     subject: "Help with your service",
     text: `Hi ${userService.name}, 
