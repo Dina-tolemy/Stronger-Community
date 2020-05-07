@@ -6,7 +6,7 @@ function UserCard(props) {
         <div className="col-sm-12  col-md-6  col-lg-4">
           <div className="card userCard">
             <div className="content">
-              <ul style={{color: props.isChecked ? "lightgrey" : "teal" }}>
+              <ul style={{color: props.isChecked ? "lightgrey" : "#7F5E93" }}>
                 <li>
                   <strong>{props.name}</strong> 
                 </li>
