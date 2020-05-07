@@ -9,21 +9,24 @@ import NavBar from "../../components/Helpernabar/HeplerNavbar";
 const UserDetails = (props) => {
   const [user, setUser] = useState({});
   const [userService, setUserService] = useState([]);
-  const helperId = sessionStorage.getItem("çurrentUserId");
-  const [userEmail, setUserEmail] = useState({});
+  // const helperId = sessionStorage.getItem("çurrentUserId");
+  const [userEmail, setUserEmail] = useState({
+    recipient: "dina.a.tolemy@gmail.com",
+    sender: "dina.a.tolemy@gmail.com",
+    subject: "Help with your service",
+    text: `Hi ${userService.name}, 
+    some one has shown interst to help you with your service on our application, they will be contacting you soon`,
+  });
   const { id } = useParams();
 
   useEffect(() => {
-    API.getUserOwnService(id)
-      .then((res) => setUserService(res.data[0]))
-      .then(getCurrentHelperInfo(helperId))
-      .then(settingemailState());
+    API.getUserOwnService(id).then((res) => setUserService(res.data[0]));
   }, [userService]);
 
   function getCurrentHelperInfo(helperId) {
     API.getuserDetails(helperId)
       .then((res) => setUser(res.data))
-      .then(console.log("this is the user"+user))
+      .then(console.log("this is the user" + user))
       .catch((err) => console.log(err));
   }
   function checkuserService(id) {
@@ -31,15 +34,8 @@ const UserDetails = (props) => {
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   }
-  function settingemailState() {
-    setUserEmail({
-      recipient: userService.email,
-      sender: user.email,
-      subject: "Help with your service",
-      text: `Hi ${userService.name} Iam ${user.name} and Iam welling to help you with 
-      your request on stronger Community this is my phone number for contact ${user.phone}`,
-    });
-  }
+  //console.log("the user"+user);
+  // console.log(userEmail)
 
   function sendEmail() {
     fetch(
@@ -52,6 +48,9 @@ const UserDetails = (props) => {
     <div className="helperMainDiv">
       <NavBar />
       <div className="mainPage">
+        <h1 className="helpermaintitle">
+          {userService.name} Profile Informaion
+        </h1>
         <div className="detailsdiv">
           <Wrapper>
             <DetailsCard
@@ -74,6 +73,12 @@ const UserDetails = (props) => {
                       onClick={() => checkuserService(service._id)}
                     >
                       Help
+                    </button>
+                    <button
+                      className=" detailsButtons danger btn-success"
+                      onClick={() => sendEmail()}
+                    >
+                      Email
                     </button>
                   </div>
                 </div>

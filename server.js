@@ -6,10 +6,11 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const passport = require("passport");
 const cors = require('cors'); //needed to disable sendgrid security
-const sgMail = require('@sendgrid/mail'); //sendgrid library to send emails 
+const sgMail = require('@sendgrid/mail');//sendgrid library to send emails 
+require('dotenv').config 
 
-const API_KEY =process.env.REACT_APP_Mail_API_KEY;
-
+const API_KEY =process.env.REACT_APP_SG_API_KEY;
+console.log(API_KEY)
 sgMail.setApiKey(API_KEY);
 
 app.use(cors()); 
