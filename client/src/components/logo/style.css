@@ -1,0 +1,15 @@
+.logoCard{
+    height: 200px;
+    
+}
+.logocontainer{
+    margin-left: 600px;
+    margin-top: 5px;
+}
+
+@media (max-width:1024px){
+
+    .logoCard{
+        background-size:contain;
+    }
+}

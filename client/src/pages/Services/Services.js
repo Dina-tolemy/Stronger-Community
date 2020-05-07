@@ -5,6 +5,7 @@ import Wrapper from "../../components/wrapper/wrapper";
 import DeleteButton from "../../components/DeleteButton/deletebutton";
 import NavBar from "../../components/inNeedNavBar/inNeednavbar";
 import "./style.css";
+import Logonav from "../../components/logo/logo";
 
 const UserServices = (props) => {
   const id = sessionStorage.getItem("çurrentUserId");
@@ -34,9 +35,9 @@ const UserServices = (props) => {
   return (
     <div>
       <NavBar />
-
+      <Logonav />
       <div className="mainPage">
-  <h1 className="helpermaintitle">{user.name}'s required services</h1>
+        <h1 className="helpermaintitle">{user.name}'s required services</h1>
         <Wrapper>
           {userService.map((service) => (
             <div>
@@ -60,8 +61,8 @@ const UserServices = (props) => {
             <div className="card-content">
               <strong className="notemsg">Note:</strong>
               <p>
-                If one of your services color is faded that means it's pending now, and
-                someone will contact you soon to help you with it.
+                If one of your services color is faded that means it's pending
+                now, and someone will contact you soon to help you with it.
               </p>
             </div>
           </div>

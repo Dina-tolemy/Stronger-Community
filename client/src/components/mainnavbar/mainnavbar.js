@@ -1,6 +1,6 @@
 import React from 'react';
 import "./mainnavstyle.css";
-import NavImg from "../Imgs/stronger-together-logo.png";
+import NavImg from "../Imgs/mlogo.jpg";
 
   
 const Picturenav = () => {

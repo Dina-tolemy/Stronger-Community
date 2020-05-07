@@ -18,7 +18,7 @@ function detailsCard(props) {
           <li id="liSuburb">
             <strong>
               {" "}
-              <i class="fas fa-home" style={{ fontSize: 30, color: "teal" }}>
+              <i class="fas fa-home" style={{ fontSize: 30, color: "#7F5E93" }}>
                 {" "}
               </i>{" "}
               {props.suburb}
@@ -28,7 +28,7 @@ function detailsCard(props) {
           <li id="liPhone">
             <strong>
               {" "}
-              <i class="fas fa-phone" style={{ fontSize: 30, color: "teal" }}>
+              <i class="fas fa-phone" style={{ fontSize: 30, color: "#7F5E93"}}>
                 {" "}
               </i>{" "}
               {props.phone}
@@ -39,7 +39,7 @@ function detailsCard(props) {
             <strong>
               <i
                 class="far fa-envelope"
-                style={{ fontSize: 30, color: "teal" }}
+                style={{ fontSize: 30, color: "#7F5E93" }}
               >
                 {" "}
               </i>{" "}
@@ -48,7 +48,7 @@ function detailsCard(props) {
           </li>
           <br></br>
           <li id="liService">
-            <strong style={{color:"teal"}}>Required Services: </strong>
+            <strong style={{color:"#7F5E93"}}>Required Services: </strong>
             {props.services}
           </li>
         </ul>

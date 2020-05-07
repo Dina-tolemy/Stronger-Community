@@ -9,7 +9,8 @@ import {
 } from "../../components/submitService/submitService";
 import { logoutUser } from "../../actions/auth";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import NavBar from "../../components/inNeedNavBar/inNeednavbar"
+import NavBar from "../../components/inNeedNavBar/inNeednavbar";
+import Logonav from "../../components/logo/logo";
 
 const User = (props) => {
   const [user, setUser] = useState({});
@@ -45,6 +46,7 @@ const User = (props) => {
   return (
     <div className="userMainDiv">
      <NavBar/>
+     <Logonav/>
       <div className="mainPage">
       <h1 className="helpermaintitle">Add new service</h1>
         <form className="ServiceForm">

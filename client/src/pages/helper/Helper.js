@@ -9,7 +9,8 @@ import Moment from "react-moment";
 import Tippy from "@tippy.js/react";
 import 'tippy.js/dist/tippy.css';
 import "./helper.css";
-import NavBar from "../../components/Helpernabar/HeplerNavbar"
+import NavBar from "../../components/Helpernabar/HeplerNavbar";
+import Logonav from "../../components/logo/logo";
 
 const Helper = (props) => {
   const [vulUser, setvulUser] = useState([]);
@@ -37,6 +38,7 @@ const Helper = (props) => {
   return (
     <div className="helperMainDiv">
       <NavBar/>
+      <Logonav/>
       <div className="mainPage">
         <h1 className="helpermaintitle">Our Community</h1>
         <Wrapper>

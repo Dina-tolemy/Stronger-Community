@@ -8,6 +8,7 @@ import Wrapper from "../../components/wrapper/wrapper";
 import Tippy from "@tippy.js/react";
 import "tippy.js/dist/tippy.css";
 import NavBar from "../../components/inNeedNavBar/inNeednavbar";
+import Logonav from "../../components/logo/logo";
 
 const InNeedProfile = (props) => {
   const [user, setUser] = useState({});
@@ -26,6 +27,7 @@ const InNeedProfile = (props) => {
   return (
     <div className="helperMainDiv">
       <NavBar />
+      <Logonav/>
       <div className="mainPage">
       <h1 className="helpermaintitle">Profile Informaion</h1>
         <Wrapper>
@@ -38,7 +40,7 @@ const InNeedProfile = (props) => {
                     {" "}
                     <i
                       className="far fa-envelope"
-                      style={{ fontSize: 30, color: "teal" }}
+                      style={{ fontSize: 30, color: "#7F5E93" }}
                     >
                       {" "}
                     </i>{" "}
@@ -48,7 +50,7 @@ const InNeedProfile = (props) => {
                     {" "}
                     <i
                       className="fas fa-phone"
-                      style={{ fontSize: 30, color: "teal" }}
+                      style={{ fontSize: 30, color: "#7F5E93" }}
                     >
                       {" "}
                     </i>{" "}
@@ -58,7 +60,7 @@ const InNeedProfile = (props) => {
                     {" "}
                     <i
                       className="fas fa-home"
-                      style={{ fontSize: 30, color: "teal" }}
+                      style={{ fontSize: 30, color: "#7F5E93"}}
                     >
                       {" "}
                     </i>{" "}

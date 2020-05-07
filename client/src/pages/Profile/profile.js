@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
 import Wrapper from "../../components/wrapper/wrapper";
 import NavBar from "../../components/Helpernabar/HeplerNavbar";
-import "./style.css"
+import "./style.css";
+import Logonav from "../../components/logo/logo";
 
 const Profile = (props) => {
   const [user, setUser] = useState({});
@@ -23,6 +24,7 @@ const Profile = (props) => {
   return (
     <div className="helperMainDiv">
       <NavBar />
+      <Logonav/>
       <div className="mainPage">
       <h1 className="helpermaintitle">Profile Informaion</h1>
         <Wrapper>

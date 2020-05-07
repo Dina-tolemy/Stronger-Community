@@ -5,13 +5,14 @@ import Wrapper from "../../components/wrapper/wrapper";
 import DetailsCard from "../../components/detailscard/details";
 import "./style.css";
 import NavBar from "../../components/Helpernabar/HeplerNavbar";
+import Logonav from "../../components/logo/logo";
 
 const UserDetails = (props) => {
   const [user, setUser] = useState({});
   const [userService, setUserService] = useState([]);
   // const helperId = sessionStorage.getItem("çurrentUserId");
   const [userEmail, setUserEmail] = useState({
-    recipient: userService.email,
+    recipient: "dina.a.tolemy@gmail.com",
     sender: "dina.a.tolemy@gmail.com",
     subject: "Help with your service",
     text: `Hi ${userService.name}, 
@@ -39,52 +40,62 @@ const UserDetails = (props) => {
 
   function sendEmail() {
     fetch(
-      `http://127.0.0.1:3001/send-email?recipient=${userEmail.recipient}&sender=${userEmail.sender}&topic=${userEmail.subject}&text=${userEmail.text}`
+      `http://localhost:3001/send-email?recipient=${userEmail.recipient}&sender=${userEmail.sender}&topic=${userEmail.subject}&text=${userEmail.text}`
     ) //query string url
+      .then(console.log("email sent"))
       .catch((err) => console.error(err));
   }
 
   return (
     <div className="helperMainDiv">
       <NavBar />
+      <Logonav />
       <div className="mainPage">
         <h1 className="helpermaintitle">
           {userService.name} Profile Informaion
         </h1>
-        <div className="detailsdiv">
-          <Wrapper>
-            <DetailsCard
-              key={userService._id}
-              id={userService._id}
-              name={userService.name}
-              suburb={userService.suburb}
-              email={userService.email}
-              phone={userService.phone}
-              services={userService?.services?.map((service) => (
-                <div
-                  style={{ color: service.isChecked ? "lightgrey" : "grey" }}
-                >
-                  <strong>{service.name}</strong> <br></br>
-                  {service.details}
-                  <div className="row">
-                    <button
-                      disabled={service.isChecked}
-                      className=" detailsButtons danger btn-success"
-                      onClick={() => checkuserService(service._id)}
-                    >
-                      Help
-                    </button>
-                    <button
-                      className=" detailsButtons danger btn-success"
-                      onClick={() => sendEmail()}
-                    >
-                      Email
-                    </button>
-                  </div>
+
+        <Wrapper>
+          <DetailsCard
+            key={userService._id}
+            id={userService._id}
+            name={userService.name}
+            suburb={userService.suburb}
+            email={userService.email}
+            phone={userService.phone}
+            services={userService?.services?.map((service) => (
+              <div style={{ color: service.isChecked ? "lightgrey" : "grey" }}>
+                <strong>{service.name}</strong> <br></br>
+                {service.details}
+                <div className="row">
+                  <button
+                    disabled={service.isChecked}
+                    className=" detailsButtons danger btn-success"
+                    onClick={() => checkuserService(service._id)}
+                  >
+                    Help
+                  </button>
+                  <button
+                    className=" detailsButtons danger btn-success"
+                    onClick={() => sendEmail()}
+                  >
+                    Email
+                  </button>
                 </div>
-              ))}
-            />
-          </Wrapper>
+              </div>
+            ))}
+          />
+        </Wrapper>
+        <div className="col-sm-12">
+          <div className="card noteCard">
+            <div className="card-content">
+              <strong className="notemsg">Note:</strong>
+              <p>
+                Faded color services are pending, and assigned to another helper
+                now.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

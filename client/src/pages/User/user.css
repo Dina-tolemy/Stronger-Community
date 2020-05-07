@@ -1,5 +1,5 @@
 .mainPage {
-    margin-left: 60px; /* Same as the width of the sidenav */
+    margin-left: 80px; /* Same as the width of the sidenav */
     font-size: 28px; /* Increased text to enable scrolling */
     padding: 0px 10px;
     font-family: 'Times New Roman', Times, serif;
@@ -7,7 +7,7 @@
   .successMsg{
     text-align: center;
     font-weight: bold;
-    color:red;
+    color:#DA505D;
     margin: 20px;
     padding: 10px;
     font-family: 'Segoe UI';
@@ -24,7 +24,7 @@
   }
   .sidenav {
     height: 100%;
-    width: 60px;
+    width: 80px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -35,10 +35,11 @@
   }
   
   .sidenav a {
+    margin-top: 30px;
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 25px;
-    color: teal;
+    color: #7F5E93;
     display: block;
     float: left;
   }
@@ -47,20 +48,7 @@
     background-color: blanchedalmond;
     
   }
-  .timeMoment{
-   
-    text-decoration: none;
-    font-size: 15px;
-    color: #818181;
-    float: left;
-    position: relative;
-    margin-bottom: 0px;
-    
-  }
-
-  .timeMoment :hover{
-    color: #f1f1f1;
-  }
+ 
   
   @media screen and (max-width: 450px) {
     .sidenav {
@@ -76,7 +64,7 @@
     
   } 
   .greetingUser{
-    color: teal;
+    color:  #7F5E93;
     background-color: #f1f1f1;
     margin:3px;
     text-align: center;

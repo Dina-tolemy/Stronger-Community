@@ -5,8 +5,8 @@ import API from "../../utils/API";
 import "./style.css";
 import Wrapper from "../../components/wrapper/wrapper";
 import GetHelpCard from "../../components/GetHelpCard/GetHelpCard";
-
 import NavBar from "../../components/Helpernabar/HeplerNavbar";
+import Logonav from "../../components/logo/logo";
 
 const Search = (props) => {
   const [searchResult, setSearchResult] = useState([]);
@@ -78,6 +78,7 @@ const Search = (props) => {
   return (
     <div>
       <NavBar />
+      <Logonav/>
       <div className="mainPage">
       <h1 className="helpermaintitle">Search your suburb for more details</h1>
         <div>
