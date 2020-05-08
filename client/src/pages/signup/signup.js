@@ -27,12 +27,11 @@ function SignUp() {
       password2: formObject.password2,
       userType: "getHelp",
     })
-      .then((res) => console.log(formObject))
+      .then((res) => seterror("Sign up successfully"))
       .catch((err) => {
         console.log(err);
         seterror("Check your data again something is wrong");
       })
-     .then((window.location.href = "./"));
   }
 
   function handleHelpersignUp(event) {
@@ -60,7 +59,9 @@ function SignUp() {
   return (
     <div className="signUpdiv">
       <Picturenav />
+     
       <form className="form-signup">
+      <a style={{color:"#DA505D",fontSize:18,textAlign:"center"}} href="/">Back to sign in</a>
         <input
           type="name"
           id="inputName"
