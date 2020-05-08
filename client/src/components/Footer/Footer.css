@@ -1,0 +1,10 @@
+.projectFooter {
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  background-color: #7f5e93;
+  bottom: 0;
+  color: whitesmoke;
+  padding-top: 2px;
+  height: 30px;
+}

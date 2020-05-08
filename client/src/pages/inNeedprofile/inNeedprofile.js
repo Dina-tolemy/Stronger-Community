@@ -9,6 +9,7 @@ import Tippy from "@tippy.js/react";
 import "tippy.js/dist/tippy.css";
 import NavBar from "../../components/inNeedNavBar/inNeednavbar";
 import Logonav from "../../components/logo/logo";
+import Footer from "../../components/Footer/footer"
 
 const InNeedProfile = (props) => {
   const [user, setUser] = useState({});
@@ -86,6 +87,7 @@ const InNeedProfile = (props) => {
           </div>
         </Wrapper>
       </div>
+      <Footer/>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import Wrapper from "../../components/wrapper/wrapper";
 import NavBar from "../../components/Helpernabar/HeplerNavbar";
 import "./style.css";
 import Logonav from "../../components/logo/logo";
+import Footer from "../../components/Footer/footer";
 
 const Profile = (props) => {
   const [user, setUser] = useState({});
@@ -81,6 +82,7 @@ const Profile = (props) => {
           </div>
         </Wrapper>
       </div>
+      <Footer/>
     </div>
   );
 };

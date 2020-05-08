@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import API from "../../utils/API";
 import "./login.css";
 import Picturenav from "../../components/mainnavbar/mainnavbar";
+import Footer from "../../components/Footer/footer"
 
 export default function Login(props) {
   const [userData, setUserData] = useState([]);
@@ -105,6 +106,7 @@ export default function Login(props) {
           </form>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

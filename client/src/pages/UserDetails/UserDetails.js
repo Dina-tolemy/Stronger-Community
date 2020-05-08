@@ -6,6 +6,7 @@ import DetailsCard from "../../components/detailscard/details";
 import "./style.css";
 import NavBar from "../../components/Helpernabar/HeplerNavbar";
 import Logonav from "../../components/logo/logo";
+import Footer from "../../components/Footer/footer"
 
 const UserDetails = (props) => {
   const [user, setUser] = useState({});
@@ -98,6 +99,7 @@ const UserDetails = (props) => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

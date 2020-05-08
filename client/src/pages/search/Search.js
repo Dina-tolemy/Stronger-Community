@@ -7,6 +7,7 @@ import Wrapper from "../../components/wrapper/wrapper";
 import GetHelpCard from "../../components/GetHelpCard/GetHelpCard";
 import NavBar from "../../components/Helpernabar/HeplerNavbar";
 import Logonav from "../../components/logo/logo";
+import Footer from "../../components/Footer/footer"
 
 const Search = (props) => {
   const [searchResult, setSearchResult] = useState([]);
@@ -92,6 +93,7 @@ const Search = (props) => {
           ))}
         </Wrapper>
       </div>
+      <Footer/>
     </div>
   );
 };

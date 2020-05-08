@@ -7,10 +7,9 @@ import {
   TextArea,
   FormBtn,
 } from "../../components/submitService/submitService";
-import { logoutUser } from "../../actions/auth";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import NavBar from "../../components/inNeedNavBar/inNeednavbar";
 import Logonav from "../../components/logo/logo";
+import Footer from "../../components/Footer/footer"
 
 const User = (props) => {
   const [user, setUser] = useState({});
@@ -67,6 +66,7 @@ const User = (props) => {
       <div>
          <h3 className="successMsg">{msg}</h3>
         </div>
+        <Footer/>
     </div>
   );
 };

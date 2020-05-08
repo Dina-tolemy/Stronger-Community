@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import "./signup.css";
 import Picturenav from "../../components/mainnavbar/mainnavbar";
 import { useForm } from "react-hook-form";
+import Footer from "../../components/Footer/footer"
 
 function SignUp() {
   const [formObject, setFormObject] = useState({});
@@ -166,6 +167,7 @@ function SignUp() {
         </button>
         <p className="mt-3 mb-3 text-muted">&copy; Stronger Comunity 2020</p>
       </form>
+      <Footer/>
     </div>
   );
 }

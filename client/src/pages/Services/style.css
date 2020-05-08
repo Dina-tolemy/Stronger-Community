@@ -1,12 +1,14 @@
 .noteCard{
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     color: #7F5E93;
     position: relative;
     margin-left: 0px;
     background-color: whitesmoke;
+    padding-left: 10px;
     
 }
 
 .notemsg{
     color: #DA505D;
+  padding-left: 10px;
 }

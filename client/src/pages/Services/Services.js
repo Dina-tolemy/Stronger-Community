@@ -6,6 +6,7 @@ import DeleteButton from "../../components/DeleteButton/deletebutton";
 import NavBar from "../../components/inNeedNavBar/inNeednavbar";
 import "./style.css";
 import Logonav from "../../components/logo/logo";
+import Footer from "../../components/Footer/footer"
 
 const UserServices = (props) => {
   const id = sessionStorage.getItem("çurrentUserId");
@@ -68,6 +69,7 @@ const UserServices = (props) => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

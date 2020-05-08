@@ -11,6 +11,7 @@ import 'tippy.js/dist/tippy.css';
 import "./helper.css";
 import NavBar from "../../components/Helpernabar/HeplerNavbar";
 import Logonav from "../../components/logo/logo";
+import Footer from "../../components/Footer/footer"
 
 const Helper = (props) => {
   const [vulUser, setvulUser] = useState([]);
@@ -67,6 +68,7 @@ const Helper = (props) => {
           ))}
         </Wrapper>
       </div>
+      <Footer/>
     </div>
   );
 };
