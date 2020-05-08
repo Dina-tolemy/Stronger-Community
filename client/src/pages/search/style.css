@@ -18,6 +18,14 @@
     color: whitesmoke;
     margin-left: 20px;
 }
+.seracherrormsg{
+
+    text-align: center;
+    color:#DA505D;
+    margin-top: 50px;
+    font-weight: bold;
+    font-size: xx-large;
+}
 
 @media screen and (max-width: 450px) {
     .searchBar{

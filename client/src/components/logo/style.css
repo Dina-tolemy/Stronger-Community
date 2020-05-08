@@ -9,15 +9,13 @@
 
 @media (max-width:1024px){
 
-    .logoCard{
-        background-size:contain;
-        margin-left: 200px;
+    .logocontainer{
+        margin-left: 55px;
     }
 }
-@media (max-width:470px){
+@media (max-width:450px){
 
-    .logoCard{
-        background-size:contain;
-        margin-left: 30px;
+    .logocontainer{
+        margin-left: 10px;
     }
 }

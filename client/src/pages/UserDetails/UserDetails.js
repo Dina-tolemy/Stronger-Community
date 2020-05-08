@@ -70,13 +70,13 @@ const UserDetails = (props) => {
                 <div className="row">
                   <button
                     disabled={service.isChecked}
-                    className=" detailsButtons danger btn-success"
+                    className=" btn detailsButtons"
                     onClick={() => checkuserService(service._id)}
                   >
                     Help
                   </button>
                   <button
-                    className=" detailsButtons danger btn-success"
+                    className="btn detailsButtons"
                     onClick={() => sendEmail()}
                   >
                     Email

@@ -31,49 +31,55 @@ const InNeedProfile = (props) => {
       <div className="mainPage">
       <h1 className="helpermaintitle">Profile Informaion</h1>
         <Wrapper>
-          <div className="col-sm-12">
+        <div className="col-sm-12">
             <div className="card">
               <div className="card-content">
-                <h1 className="nameTitle">{user.name} </h1>
+                <h1 className="nameTitle1">{user.name} </h1>
                 <ul className="profileDetails">
-                  <li>
-                    {" "}
+                  <li className="card">
+                    <br></br>
                     <i
                       className="far fa-envelope"
                       style={{ fontSize: 30, color: "#7F5E93" }}
                     >
                       {" "}
+                      {user.email}
                     </i>{" "}
-                    {user.email}
+                    <br></br>
                   </li>
-                  <li>
-                    {" "}
+
+                  <li className="card">
+                    <br></br>
                     <i
                       className="fas fa-phone"
                       style={{ fontSize: 30, color: "#7F5E93" }}
                     >
                       {" "}
+                      {user.phone}
                     </i>{" "}
-                    {user.phone}
+                    <br></br>
                   </li>
-                  <li>
-                    {" "}
+                  <li className="card">
+                    <br></br>
                     <i
                       className="fas fa-home"
-                      style={{ fontSize: 30, color: "#7F5E93"}}
+                      style={{ fontSize: 30, color: "#7F5E93" }}
                     >
                       {" "}
-                    </i>{" "}
-                    {"  "}
-                    {user.suburb}
+                      {user.suburb}
+                    </i>
+
+                    <br></br>
                   </li>
                 </ul>
               </div>
             </div>
             <button
               className="btn-danger"
-              style={{ float: "right", margin: 10, borderRadius: 5 }}
-              onClick={()=>{DeleteUserAccount(id)}}
+              style={{ float: "right", margin: 6, borderRadius: 5 }}
+              onClick={() => {
+                DeleteUserAccount(id);
+              }}
             >
               Delete account
             </button>

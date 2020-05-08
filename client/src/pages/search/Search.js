@@ -14,11 +14,11 @@ const Search = (props) => {
   const [search, setSearch] = useState("");
   const [user, setUser] = useState({});
   const id = sessionStorage.getItem("çurrentUserId");
+  const [msg, setmsg] = useState("");
 
   useEffect(() => {
     API.getuserDetails(id).then((res) => setUser(res.data));
-    // .then(getAllVUllWithService());
-  }, [searchResult]);
+  }, []);
 
   function handleInputChange(event) {
     setSearch(event.target.value);
@@ -29,83 +29,63 @@ const Search = (props) => {
     event.preventDefault();
     searchchSub();
   }
+
   function searchchSub() {
+    setSearchResult([]);
     API.getUsersinSuburb(search)
-      .then((res) => setSearchResult(res.data))
+      .then((res) => {
+        if (!res.data[0]) {
+          setmsg("Sorry, No current users in this suburb.");
+        } else {
+          setmsg("");
+          setSearchResult(res.data);
+        }
+        console.log(res.data);
+      })
       .catch((err) => console.log(err));
   }
 
-  //function to get all vul with theie required services
-  function getAllVUllWithService() {
-    API.getUsersWithService()
-      .then((res) => console.log(res.data))
-      // .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
-  }
-
-  function checkuserService(id) {
-    API.getAllServices().then((res) => {
-      setservice(res.data);
-      console.log(res);
-      const updatedservice = services.filter((service) => service._id == id);
-      API.chechService({ _id: updatedservice.id })
-        .then((res) => console.log(res.data))
-        .catch((err) => console.log(err));
-    });
-  }
   function viewUser(id) {
-
-    console.log("hello");
-    props.history.push("/"+id);
+    props.history.push("/" + id);
   }
-  // old map function
-  /**  services={user.services.map((service) => (
-                <div key={service._id}>
-                   <input
-                      key={service._id}
-                      type="checkbox"
-                      onChange={() => checkuserService(service._id)}
-                    />
-                  <p style={{color: service.isChecked ? "lightgrey" : "teal"}}>
-                    <strong>{service.name}</strong>{" "}
-                   
-                    {<br></br>}
-                    {service.details}
-                  </p>
-                </div>
-              ))} */
 
   return (
     <div>
       <NavBar />
-      <Logonav/>
+      <Logonav />
       <div className="mainPage">
-      <h1 className="helpermaintitle">Search your suburb for more details</h1>
+        <h1 className="helpermaintitle">Search your suburb for more details</h1>
         <div>
-        <input
-          style={{ marginTop: 10 }}
-          className="searchBar"
-          type="search"
-          id="inputinSearch"
-          name="search"
-          placeholder="Search by suburb"
-          onChange={handleInputChange}
-        />{" "}
-        <button
-          style={{ marginTop: 0 }}
-          className="btn btn-lg  searchButton"
-          type="submit"
-          onClick={handleSubmit}
-        >
-          {" "}
-          Search
-        </button>
+          <input
+            style={{ marginTop: 10 }}
+            className="searchBar"
+            type="search"
+            id="inputinSearch"
+            name="search"
+            placeholder="Search by suburb"
+            onChange={handleInputChange}
+          />{" "}
+          <button
+            style={{ marginTop: 0 }}
+            className="btn btn-lg  searchButton"
+            type="submit"
+            onClick={handleSubmit}
+          >
+            {" "}
+            Search
+          </button>
         </div>
+        <div className="seracherrormsg">{msg}</div>
         <Wrapper>
           {searchResult.map((user) => (
             <div>
               <GetHelpCard key={user._id} id={user._id} name={user.name} />
-              <button class="viewButton" key={user._id} id={user._id} onClick={() => viewUser(user._id)}>
+              <button
+                class="viewButton"
+                key={user._id}
+                id={user._id}
+                onClick={() => viewUser(user._id)}
+              >
                 View
               </button>
             </div>

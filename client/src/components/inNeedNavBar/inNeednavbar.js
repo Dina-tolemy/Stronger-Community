@@ -9,7 +9,7 @@ function HelperNavBar(props) {
   return (
     <div className="sidenav">
       <br></br>
-      <Link to="/Main">
+      <Link to="/Main" >
         <Tippy className="allpeopleTooltip" content="Request a service">
           <i className="far fa-plus-square" style={{ fontSize: 30 }}></i>
         </Tippy>

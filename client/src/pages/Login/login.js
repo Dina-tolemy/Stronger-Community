@@ -44,7 +44,6 @@ export default function Login(props) {
       <div className="row">
         <div className="MainPageCard card col-sm-12 col-lg-6 ">
           <div className="card-content">
-            <h4 className="mainpageHeader">Stronger Community</h4>
             <p className="projectDescription">
               {" "}
             <p>  In these difficult times we should all be there for each other.</p>
