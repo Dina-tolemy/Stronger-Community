@@ -5,8 +5,9 @@ export default function Footer() {
   return (
     <div>
       <div className="projectFooter footer">
-        <p className="footerName">Dina Eltolemy 2020
+        <p className="footerName">Dina Eltolemy 2020 
           </p>
+          
       </div>
     </div>
   );

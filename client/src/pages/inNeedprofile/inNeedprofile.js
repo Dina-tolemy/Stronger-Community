@@ -41,7 +41,7 @@ const InNeedProfile = (props) => {
                     <br></br>
                     <i
                       className="far fa-envelope"
-                      style={{ fontSize: 30, color: "#7F5E93" }}
+                      style={{ fontSize: 30, color: "#7F5E93", paddingLeft:10}}
                     >
                       {" "}
                       {user.email}
@@ -53,7 +53,7 @@ const InNeedProfile = (props) => {
                     <br></br>
                     <i
                       className="fas fa-phone"
-                      style={{ fontSize: 30, color: "#7F5E93" }}
+                      style={{ fontSize: 30, color: "#7F5E93",paddingLeft:10 }}
                     >
                       {" "}
                       {user.phone}
@@ -64,7 +64,7 @@ const InNeedProfile = (props) => {
                     <br></br>
                     <i
                       className="fas fa-home"
-                      style={{ fontSize: 30, color: "#7F5E93" }}
+                      style={{ fontSize: 30, color: "#7F5E93",paddingLeft:10 }}
                     >
                       {" "}
                       {user.suburb}

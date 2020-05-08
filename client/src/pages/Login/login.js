@@ -59,7 +59,7 @@ export default function Login(props) {
           <form className=" form-signin">
             <h2 className="signInTitle">Sign in to Stronger Community</h2>
             <p>
-              Don't have an account <a href="/signup">Sign up Here</a>
+              Don't have an account  {" "}<a style={{color:"#DA505D",fontSize:18}} href="/signup">{" "} Sign up Here</a>
             </p>
             <label htmlFor="inputEmail" className="sr-only">
               Email address
