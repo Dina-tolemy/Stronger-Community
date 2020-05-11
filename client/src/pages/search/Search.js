@@ -79,7 +79,7 @@ const Search = (props) => {
         <div className="seracherrormsg">{msg}</div>
         <Wrapper>
           {searchResult.map((user) => (
-            <div>
+            <div className= "col-sm-12  col-md-6  col-lg-4">
               <GetHelpCard key={user._id} id={user._id} name={user.name} />
               <button
                 class="viewButton"

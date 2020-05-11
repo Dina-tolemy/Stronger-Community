@@ -38,7 +38,7 @@ const UserServices = (props) => {
       <NavBar />
       <Logonav />
       <div className="mainPage">
-        <h1 className="helpermaintitle">{user.name}'s required services</h1>
+        <h1 className="helpermaintitle">{user.name}'s current requests</h1>
         <Wrapper>
           {userService.map((service) => (
             <div>
@@ -62,7 +62,7 @@ const UserServices = (props) => {
             <div className="card-content">
               <strong className="notemsg">Note:</strong>
               <p>
-                If one of your services color is faded that means it's pending
+                If one of your requests color is faded that means it's pending
                 now, and someone will contact you soon to help you with it.
               </p>
             </div>

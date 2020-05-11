@@ -47,19 +47,22 @@ const User = (props) => {
      <NavBar/>
      <Logonav/>
       <div className="mainPage">
-      <h1 className="helpermaintitle">Add new service</h1>
+      <h1 className="helpermaintitle">Add a new Request</h1>
         <form className="ServiceForm">
           <Input
             onChange={handleInputChange}
             name="title"
-            placeholder="Your service name here (required)"
+            required
+            placeholder="Your Request name here (required)"
           />
           <TextArea
             onChange={handleInputChange}
             name="details"
-            placeholder="Extra details of the service you need(Optional)"
+            placeholder="Extra details of your Request you need(Optional)"
           />
-          <FormBtn onClick={handleFormSubmit}></FormBtn>
+          <FormBtn onClick={handleFormSubmit} disabled={
+            !(serviceForm.title)
+          }></FormBtn>
         </form>
         {<br></br>}
       </div>

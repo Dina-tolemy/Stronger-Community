@@ -2,14 +2,6 @@ import React from "react";
 import "./style.css";
 
 function GetHelpCard(props) {
-  /** <li id="liService">
-              <strong>Required services: </strong>
-            
-               {props.services}
-          
-              <p><strong>{props.services.name}</strong></p>
-              <p>{props.services.details}</p>
-              </li> */
   return (
     <div className="col-sm-12  col-md-6  col-lg-4">
       <div className="card allvullCard">

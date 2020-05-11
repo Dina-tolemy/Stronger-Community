@@ -2,14 +2,7 @@ import React from "react";
 import "./style.css";
 
 function detailsCard(props) {
-  /** <li id="liService">
-              <strong>Required services: </strong>
-            
-               {props.services}
-          
-              <p><strong>{props.services.name}</strong></p>
-              <p>{props.services.details}</p>
-              </li> */
+  
   return (
     <div className="col-sm-12">
       <div className="detailsCard card">
@@ -48,7 +41,7 @@ function detailsCard(props) {
           </li>
           <br></br>
           <li id="liService">
-            <strong style={{color:"#7F5E93"}}>Required Services: </strong>
+            <strong style={{color:"#7F5E93"}}>Current requests: </strong>
             {props.services}
           </li>
         </ul>

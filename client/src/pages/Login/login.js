@@ -48,10 +48,9 @@ export default function Login(props) {
             <p className="projectDescription">
               {" "}
             <p>  In these difficult times we should all be there for each other.</p>
-            <p>  Here in stronger community we let you help those in need, so, if
+            <p>  Here in stronger community, we let you help those in need, an elderly person who can't get his daily requirements or a person who lost his job and in need of  help, so, if
               you feel you can give back to your community sign in and see what
-              you can do.</p><p> On the other side if you in need for any kind of help
-              let us know so we can Help.</p>
+              you can do.</p><p>On the other side if you in need of any kind of help sign up and let your community help you.</p>
             </p>
           </div>
         </div>
@@ -106,7 +105,6 @@ export default function Login(props) {
           </form>
         </div>
       </div>
-      <Footer/>
     </div>
   );
 }

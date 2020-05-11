@@ -3,13 +3,13 @@ import API from "../../utils/API";
 import "./signup.css";
 import Picturenav from "../../components/mainnavbar/mainnavbar";
 import { useForm } from "react-hook-form";
-import Footer from "../../components/Footer/footer"
+import Footer from "../../components/Footer/footer";
 
 function SignUp() {
   const [formObject, setFormObject] = useState({});
   const [error, seterror] = useState("");
   const { register, errors } = useForm();
-  
+
   function handleInputChange(event) {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
@@ -31,7 +31,7 @@ function SignUp() {
       .catch((err) => {
         console.log(err);
         seterror("Check your data again something is wrong");
-      })
+      });
   }
 
   function handleHelpersignUp(event) {
@@ -47,21 +47,25 @@ function SignUp() {
       password2: formObject.password2,
       userType: "Helper",
     })
-      .then((res) =>console.log(formObject)
-      
-      )
-      .catch((err) => {console.log(err)
-       seterror("Check your data again something is wrong")
+      .then((res) => console.log(formObject))
+      .catch((err) => {
+        console.log(err);
+        seterror("Check your data again something is wrong");
       })
-     .then((window.location.href = "./"));
+      .then((window.location.href = "./"));
   }
 
   return (
     <div className="signUpdiv">
       <Picturenav />
-     
+
       <form className="form-signup">
-      <a style={{color:"#DA505D",fontSize:18,textAlign:"center"}} href="/">Back to sign in</a>
+        <a
+          style={{ color: "#DA505D", fontSize: 18, textAlign: "center" }}
+          href="/"
+        >
+          Back to sign in
+        </a>
         <input
           type="name"
           id="inputName"
@@ -94,7 +98,7 @@ function SignUp() {
         />
         {errors.email && errors.email.message}
         <input
-          type="Suburb"
+          type="text"
           id="inputSub"
           name="suburb"
           placeholder="Enter your Suburb here"
@@ -103,9 +107,10 @@ function SignUp() {
           onChange={handleInputChange}
         />
         <input
-          type="phone"
           id="inputPhone"
           name="phone"
+          type="number"
+          inputmode="numeric"
           placeholder="Enter your phone number here"
           required
           autoFocus
@@ -144,9 +149,7 @@ function SignUp() {
             },
           })}
         />
-        <p className="error">
-        {error}
-        </p>
+        <p className="error">{error}</p>
         <button
           className="btn  gethelpButton btn-block"
           type="submit"
@@ -155,7 +158,7 @@ function SignUp() {
           }
           onClick={handleSubmit}
         >
-         Needs Help
+          Needs Help
         </button>
         <button
           disabled={
@@ -164,11 +167,11 @@ function SignUp() {
           className="btn  helpButton btn-block"
           onClick={handleHelpersignUp}
         >
-           Want to Help
+          Want to Help
         </button>
         <p className="mt-3 mb-3 text-muted">&copy; Stronger Comunity 2020</p>
       </form>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
