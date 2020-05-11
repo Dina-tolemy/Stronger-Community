@@ -3,6 +3,15 @@ It's an app to help the vulnerable in our community to get help with the basic a
 
 Built with  MERN (MongoDb-Express.js-Reactjs-Nodejs).
 
+Packages:
+
+(validator, jsonwebtoken, passport-jwt, bcryptjs, body-parser)  for user authentication.
+
+(@tippy.js/react) for tootips in the side nav.
+
+(@sendgrid/mail, cors, dotenv ) for using sendgrid API to send emails to the helper from the user.
+
+
 The app has two sides the helper side of the app and the in need side of the app, it depends on what the user chooses to sign up as.
 
 
