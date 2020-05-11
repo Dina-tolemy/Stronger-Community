@@ -26,4 +26,4 @@ Help@test.om as a helper account, and vulnerable@test.com as an in-need account
 
 password for both accounts is : 123456
 
-node server.js & npm start  to run in development.
+Development: node server.js & npm start  to run in development.
