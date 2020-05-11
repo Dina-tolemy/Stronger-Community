@@ -41,7 +41,7 @@ function detailsCard(props) {
           </li>
           <br></br>
           <li id="liService">
-            <strong style={{color:"#7F5E93"}}>Current requests: </strong>
+  <strong style={{color:"#7F5E93"}}>{props.name}'s Current requests: </strong>
             {props.services}
           </li>
         </ul>
