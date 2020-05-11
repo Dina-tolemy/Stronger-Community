@@ -1,6 +1,8 @@
 # Stronger-Community
 It's an app to help the vulnerable in our community to get help with the basic and daily needs at this time.
-Built with  MERN (MongoDb-Express.js-Reactjs-Nodejs)
+
+Built with  MERN (MongoDb-Express.js-Reactjs-Nodejs).
+
 The app has two sides the helper side of the app and the in need side of the app, it depends on what the user chooses to sign up as.
 
 
@@ -12,6 +14,7 @@ Deployed link :https://stronger-community.herokuapp.com/
 
 You can either sign up or user 
 Help@test.om as a helper account, and vulnerable@test.com as an in-need account 
+
 password for both accounts is : 123456
 
 node server.js & npm start  to run in development.
