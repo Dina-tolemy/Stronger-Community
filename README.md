@@ -9,7 +9,7 @@ Packages:
 
 (@tippy.js/react) for tootips in the side nav.
 
-(@sendgrid/mail, cors, dotenv ) for using sendgrid API to send emails to the helper from the user.
+(@sendgrid/mail, cors, dotenv ) for using sendgrid API to send emails from the helper to the user in-need.
 
 
 The app has two sides the helper side of the app and the in need side of the app, it depends on what the user chooses to sign up as.
