@@ -171,7 +171,6 @@ function SignUp() {
         </button>
         <p className="mt-3 mb-3 text-muted">&copy; Stronger Comunity 2020</p>
       </form>
-      <Footer />
     </div>
   );
 }

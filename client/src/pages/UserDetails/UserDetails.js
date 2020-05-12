@@ -92,7 +92,7 @@ const UserDetails = (props) => {
             <div className="card-content">
               <strong className="notemsg">Note:</strong>
               <p>
-                Faded color services are pending, and assigned to another helper
+                Faded color requests are pending, and assigned to another helper
                 now.
               </p>
             </div>
