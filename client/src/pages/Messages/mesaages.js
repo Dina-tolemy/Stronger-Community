@@ -5,7 +5,7 @@ import NavBar from "../../components/inNeedNavBar/inNeednavbar";
 import Logonav from "../../components/logo/logo";
 import Footer from "../../components/Footer/footer";
 import DeletButton from "../../components/DeleteButton/deletebutton";
-
+import "./style.css"
 const Messages = (props) => {
   const id = sessionStorage.getItem("çurrentUserId");
 
@@ -46,7 +46,7 @@ const Messages = (props) => {
                id={Msg._id}
                onClick={() => deleteMsg(Msg._id)}
               />
-              <div className="  card">{Msg.body}</div>
+              <div className="card msgCard">{Msg.body}</div>
             </div>
           ))}
         </Wrapper>

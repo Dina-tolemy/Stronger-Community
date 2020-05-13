@@ -28,7 +28,7 @@ const Profile = (props) => {
         <h1 className="helpermaintitle">Profile Informaion</h1>
         <Wrapper>
           <div className="col-sm-12">
-            <div className="card">
+            <div className="card profileCard">
               <div className="card-content">
                 <h1 className="nameTitle1">{user.name} </h1>
                 <ul className="profileDetails">

@@ -3,6 +3,9 @@
     color: lightcoral;
 
 }
+.profileCard{
+    background-color: whitesmoke;
+}
 
 .profileDetails{
     list-style: none;
