@@ -7,7 +7,7 @@ Packages:
 
 (validator, jsonwebtoken, passport-jwt, bcryptjs, body-parser)  for user authentication.
 
-(@tippy.js/react) for tootips in the side nav.
+(@tippy.js/react) for tooltips in the side nav.
 
 (@sendgrid/mail, cors, dotenv ) for using sendgrid API to send emails from the helper to the user in-need.
 
