@@ -27,6 +27,49 @@ router.route("/submitservice/:id").post((req, res) => {
     });
 });
 
+//post route for the helper to send a msg to the user
+router.route("/sendMsg/:id").post((req, res) => {
+  const userId = req.params.id;
+  db.Msg.create(req.body)
+    .then(({ _id }) =>
+      db.User.findOneAndUpdate(
+        { _id: userId },
+        { $push: { msgs: _id } },
+        { new: true }
+      )
+    )
+    .then((dbUser) => {
+      res.json(dbUser);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+//get route for the user to get all of his messages
+router.route("/getMyMsgs/:id").get((req, res) => {
+  // check whether the current login user has the right to view or no
+
+  db.User.find({ _id: req.params.id })
+    .populate("msgs")
+    .then((dbUser) => {
+      res.json(dbUser);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
+//delete his own service after it's been checked to true
+router.route("/deletemsg/:id").delete((req, res) => {
+  const msgId = req.params.id;
+  db.Msg.findById({ _id: msgId })
+    .populate("user")
+    .then((dbModel) => dbModel.remove())
+    .then((dbModel) => res.json(dbModel))
+    .catch((err) => res.status(422).json(err));
+});
+
+
 
 //get all services..
 router.route("/getAllServices").get((req,res)=>{

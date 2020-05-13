@@ -1,5 +1,6 @@
 module.exports = {
     User: require("./user"),
-    Service:require("./services")
+    Service:require("./services"),
+    Msg:require("./msgs")
     
   };

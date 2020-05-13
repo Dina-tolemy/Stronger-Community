@@ -38,7 +38,7 @@ const User = (props) => {
     })
       .then((res) => console.log(res, serviceForm))
       .then(setServiceForm({...serviceForm}))
-      .then(() => setMsg("Your service Is added successfully"))
+      .then(() => setMsg("Your Request Is added successfully"))
       .catch((err) => console.log(err));
   }
  

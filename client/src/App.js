@@ -11,8 +11,8 @@ import UserServices from "./pages/Services/Services"
 import Profile from "./pages/Profile/profile";
 import inNeedProfile from "./pages/inNeedprofile/inNeedprofile";
 import UserDetails from "./pages/UserDetails/UserDetails"
-
 import { setCurrentUser, logoutUser } from "./actions/auth";
+import Messages from "./pages/Messages/mesaages";
 function App() {
   if (sessionStorage.jwtToken) {
     const token = sessionStorage.jwtToken;
@@ -36,6 +36,7 @@ function App() {
         <Route exact strict path="/Myservice" component={UserServices}/> 
         <Route exact strict path="/Profile" component={Profile}/> 
         <Route exact strict path="/needProfile" component={inNeedProfile}/>
+        <Route exact strict path="/Messages" component={Messages}/>
         <Route exact strict path="/:id" component={UserDetails}/>
       </Switch>
     </Router>

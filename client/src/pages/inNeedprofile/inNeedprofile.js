@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { logoutUser } from "../../actions/auth";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import API from "../../utils/API";
-import GetHelpCard from "../../components/GetHelpCard/GetHelpCard";
-import Search from "../search/Search";
 import Wrapper from "../../components/wrapper/wrapper";
-import Tippy from "@tippy.js/react";
 import "tippy.js/dist/tippy.css";
 import NavBar from "../../components/inNeedNavBar/inNeednavbar";
 import Logonav from "../../components/logo/logo";

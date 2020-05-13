@@ -10,16 +10,20 @@ function HelperNavBar(props) {
     <div className="sidenav">
       <br></br>
       <Link to="/Main" >
-        <Tippy className="allpeopleTooltip" content="Request a service">
+        <Tippy className="allpeopleTooltip" content="Add new Request">
           <i className="far fa-plus-square" style={{ fontSize: 30 }}></i>
         </Tippy>
       </Link>
       <Link to="/Myservice">
-        <Tippy className="allpeopleTooltip" content="Your current services">
+        <Tippy className="allpeopleTooltip" content="Your current Requests">
           <i className="fas fa-server" style={{ fontSize: 30 }}></i>
         </Tippy>
       </Link>
-
+      <Link to="/Messages">
+        <Tippy className="allpeopleTooltip" content="Your Messages">
+        <i class='fas fa-mail-bulk' style={{fontSize:30}}></i>
+        </Tippy>
+      </Link>
       <Link to="/needProfile">
         <Tippy className="allpeopleTooltip" content="Profile">
           <i className="fas fa-address-card" style={{ fontSize: 30 }}></i>
