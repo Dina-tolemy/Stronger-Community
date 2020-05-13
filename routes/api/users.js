@@ -69,21 +69,19 @@ router.route("/deletemsg/:id").delete((req, res) => {
     .catch((err) => res.status(422).json(err));
 });
 
-
-
 //get all services..
-router.route("/getAllServices").get((req,res)=>{
+router.route("/getAllServices").get((req, res) => {
   db.Service.find(req.query)
-  .then((dbUser) => {
-    res.json(dbUser);
-  })
-  .catch((err) => {
-    res.json(err);
-  });
-})
+    .then((dbUser) => {
+      res.json(dbUser);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
 //put route for the helper to check true to a serivce he is welling to do ..
 router.route("/checkservice/:id").put((req, res) => {
-  console.log(req.params.id)
+  console.log(req.params.id);
   const serviceId = req.params.id;
   db.Service.findOneAndUpdate(
     { _id: serviceId },
@@ -134,10 +132,10 @@ router.route("/deleteservice/:id").delete((req, res) => {
 router.route("/search/:suburb").get((req, res) => {
   const userSuburb = req.params.suburb;
   console.log(userSuburb);
-  db.User.find({suburb: userSuburb,userType:"getHelp"})
+  db.User.find({ suburb: userSuburb, userType: "getHelp" })
     .populate("services")
     .then((dbUser) => res.json(dbUser))
-  //  .then(console.log(res))
+    //  .then(console.log(res))
     .catch((err) => console.log(err));
 });
 

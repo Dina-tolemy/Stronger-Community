@@ -10,12 +10,13 @@
 @media (max-width:1024px){
 
     .logocontainer{
-        margin-left: 55px;
+        margin-left: 50px;
     }
 }
 @media (max-width:450px){
 
     .logocontainer{
-        margin-left: 10px;
+        margin-left: 5px;
+        
     }
 }

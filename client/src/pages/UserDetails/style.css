@@ -9,8 +9,8 @@
 
 
 .detailsdiv {
-  margin-left: 230px;
   position: relative;
+  
 }
 
 
@@ -30,7 +30,7 @@
 @media screen and (max-width: 1024px) {
  
   .detailsdiv {
-    margin-left: 10px;
+    margin-left: 0px;
     position: relative;
   }
 }

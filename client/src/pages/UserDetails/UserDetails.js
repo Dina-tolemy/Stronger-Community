@@ -8,11 +8,12 @@ import NavBar from "../../components/Helpernabar/HeplerNavbar";
 import Logonav from "../../components/logo/logo";
 import Footer from "../../components/Footer/footer";
 
+
 const UserDetails = (props) => {
   const [user, setUser] = useState({});
   const [userService, setUserService] = useState([]);
   const [msgForm, setmsgForm] = useState({});
-  const[msg,setMsg]=useState("");
+  const [msg, setMsg] = useState("");
   // const helperId = sessionStorage.getItem("çurrentUserId");
   const [userEmail, setUserEmail] = useState({
     recipient: "dina.a.tolemy@gmail.com",
@@ -27,7 +28,6 @@ const UserDetails = (props) => {
     API.getUserOwnService(id).then((res) => setUserService(res.data[0]));
   }, [userService]);
 
-
   function handleInputChange(event) {
     const { name, value } = event.target;
     setmsgForm({ ...msgForm, [name]: value });
@@ -37,10 +37,10 @@ const UserDetails = (props) => {
     event.preventDefault();
 
     API.sendAmsg(id, {
-      body:msgForm.body
+      body: msgForm.body,
     })
       .then((res) => console.log(res, msgForm))
-      .then(setmsgForm({...msgForm}))
+      .then(setmsgForm({ ...msgForm }))
       .then(() => setMsg("Message sent"))
       .catch((err) => console.log(err));
   }
@@ -59,8 +59,8 @@ const UserDetails = (props) => {
   //console.log("the user"+user);
   // console.log(userEmail)
 
-  function sendMsg(id){
-    API.sendAmsg(id)
+  function sendMsg(id) {
+    API.sendAmsg(id);
   }
 
   function sendEmail() {
@@ -89,7 +89,7 @@ const UserDetails = (props) => {
             email={userService?.email}
             phone={userService?.phone}
             services={userService?.services?.map((service) => (
-              <div  style={{ color: service.isChecked ? "lightgrey" : "grey" }}>
+              <div style={{ color: service.isChecked ? "lightgrey" : "grey" }}>
                 <strong>{service.name}</strong> <br></br>
                 {service.details}
                 <div className="row">
@@ -112,17 +112,21 @@ const UserDetails = (props) => {
                     className="form-control"
                     placeholder="Enter your Message here"
                     rows="4"
-                    style={{marginTop:10,  fontSize: 14 ,width:"50%"}}
+                    style={{ marginTop: 10, fontSize: 14, width: "50%" }}
                     name="body"
                     required
                     onChange={handleInputChange}
-                  />  
+                  />
                 </div>
-                <button className="btn detailsButtons" onClick={handleFormSubmit}>Send Msg</button>
-                
+                <button
+                  className="btn detailsButtons"
+                  onClick={handleFormSubmit}
+                  disabled={!(msgForm.body)}
+                >
+                  Send Msg
+                </button>
               </div>
             ))}
-            
           />
         </Wrapper>
         <p className="successMsg">{msg}</p>
@@ -131,8 +135,11 @@ const UserDetails = (props) => {
             <div className="card-content">
               <strong className="notemsg">Note:</strong>
               <p>
-                Faded color requests are pending, and assigned to another helper
+                *Faded color requests are pending, and assigned to another helper
                 now.
+              </p>
+              <p>
+                *Email just send a general mail to the user, if you want to contact him with your details send a Message.
               </p>
             </div>
           </div>
