@@ -47,8 +47,6 @@ router.route("/sendMsg/:id").post((req, res) => {
 });
 //get route for the user to get all of his messages
 router.route("/getMyMsgs/:id").get((req, res) => {
-  // check whether the current login user has the right to view or no
-
   db.User.find({ _id: req.params.id })
     .populate("msgs")
     .then((dbUser) => {
@@ -68,7 +66,6 @@ router.route("/deletemsg/:id").delete((req, res) => {
     .then((dbModel) => res.json(dbModel))
     .catch((err) => res.status(422).json(err));
 });
-
 //get all services..
 router.route("/getAllServices").get((req, res) => {
   db.Service.find(req.query)
@@ -97,8 +94,6 @@ router.route("/checkservice/:id").put((req, res) => {
 });
 //get route for the vull to see all of the services he asked for
 router.route("/getMyServices/:id").get((req, res) => {
-  // check whether the current login user has the right to view or no
-
   db.User.find({ _id: req.params.id })
     .populate("services")
     .then((dbUser) => {

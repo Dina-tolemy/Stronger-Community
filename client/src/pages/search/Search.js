@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { logoutUser } from "../../actions/auth";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import API from "../../utils/API";
 import "./style.css";
 import Wrapper from "../../components/wrapper/wrapper";
-import GetHelpCard from "../../components/GetHelpCard/GetHelpCard";
+import GetHelpCard from "../../components/GethelpcardinSearch/getHelp";
 import NavBar from "../../components/Helpernabar/HeplerNavbar";
 import Logonav from "../../components/logo/logo";
 import Footer from "../../components/Footer/footer"
 
 const Search = (props) => {
   const [searchResult, setSearchResult] = useState([]);
-  const [services, setservice] = useState([]);
   const [search, setSearch] = useState("");
   const [user, setUser] = useState({});
   const id = sessionStorage.getItem("çurrentUserId");

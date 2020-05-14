@@ -10,11 +10,11 @@ import Footer from "../../components/Footer/footer";
 
 
 const UserDetails = (props) => {
-  const [user, setUser] = useState({});
   const [userService, setUserService] = useState([]);
   const [msgForm, setmsgForm] = useState({});
   const [msg, setMsg] = useState("");
-  // const helperId = sessionStorage.getItem("çurrentUserId");
+
+  
   const [userEmail, setUserEmail] = useState({
     recipient: "dina.a.tolemy@gmail.com",
     sender: "dina.a.tolemy@gmail.com",
@@ -44,25 +44,13 @@ const UserDetails = (props) => {
       .then(() => setMsg("Message sent"))
       .catch((err) => console.log(err));
   }
-
-  function getCurrentHelperInfo(helperId) {
-    API.getuserDetails(helperId)
-      .then((res) => setUser(res.data))
-      .then(console.log("this is the user" + user))
-      .catch((err) => console.log(err));
-  }
   function checkuserService(id) {
     API.chechService(id)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   }
-  //console.log("the user"+user);
-  // console.log(userEmail)
-
-  function sendMsg(id) {
-    API.sendAmsg(id);
-  }
-
+  
+ 
   function sendEmail() {
     fetch(
       `http://localhost:3001/send-email?recipient=${userEmail.recipient}&sender=${userEmail.sender}&topic=${userEmail.subject}&text=${userEmail.text}`

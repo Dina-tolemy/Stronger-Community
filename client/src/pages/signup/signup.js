@@ -3,7 +3,6 @@ import API from "../../utils/API";
 import "./signup.css";
 import Picturenav from "../../components/mainnavbar/mainnavbar";
 import { useForm } from "react-hook-form";
-import Footer from "../../components/Footer/footer";
 
 function SignUp() {
   const [formObject, setFormObject] = useState({});
@@ -47,12 +46,11 @@ function SignUp() {
       password2: formObject.password2,
       userType: "Helper",
     })
-      .then((res) => console.log(formObject))
+      .then((res) => seterror("Sign up successfully"))
       .catch((err) => {
         console.log(err);
         seterror("Check your data again something is wrong");
-      })
-      .then((window.location.href = "./"));
+      });
   }
 
   return (
