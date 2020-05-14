@@ -13,5 +13,21 @@
 
 .profileDetails{
     list-style: none;
+
+}
+.proCard{
+
+    margin:10px;
+    margin-right: 50px;
+}
+
+@media screen and (max-width: 450px) {
+
+    .proCard{
     
+        margin-bottom:5px;
+        margin-right: 0px;
+        
+      
+    }
 }

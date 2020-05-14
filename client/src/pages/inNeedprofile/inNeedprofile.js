@@ -32,7 +32,7 @@ const InNeedProfile = (props) => {
               <div className="card-content">
                 <h1 className="nameTitle1">{user.name} </h1>
                 <ul className="profileDetails">
-                  <li className="card" style={{margin:10,marginRight:50}}>
+                  <li className="card proCard" >
                     <br></br>
                     <i
                       className="far fa-envelope"
@@ -41,10 +41,11 @@ const InNeedProfile = (props) => {
                       {" "}
                       {user.email}
                     </i>{" "}
+                    
                     <br></br>
                   </li>
 
-                  <li className="card" style={{margin:10,marginRight:50}}>
+                  <li className="card proCard" >
                     <br></br>
                     <i
                       className="fas fa-phone"
@@ -55,7 +56,7 @@ const InNeedProfile = (props) => {
                     </i>{" "}
                     <br></br>
                   </li>
-                  <li className="card"style={{margin:10,marginRight:50}}>
+                  <li className="card proCard">
                     <br></br>
                     <i
                       className="fas fa-home"
