@@ -32,7 +32,7 @@ const Profile = (props) => {
               <div className="card-content">
                 <h1 className="nameTitle1">{user.name} </h1>
                 <ul className="profileDetails">
-                  <li className="card">
+                  <li className="card" style={{margin:10,marginRight:50}}>
                     <br></br>
                     <i
                       className="far fa-envelope"
@@ -44,7 +44,7 @@ const Profile = (props) => {
                     <br></br>
                   </li>
 
-                  <li className="card">
+                  <li className="card" style={{margin:10,marginRight:50}}>
                     <br></br>
                     <i
                       className="fas fa-phone"
@@ -55,7 +55,7 @@ const Profile = (props) => {
                     </i>{" "}
                     <br></br>
                   </li>
-                  <li className="card">
+                  <li className="card" style={{margin:10,marginRight:50}}>
                     <br></br>
                     <i
                       className="fas fa-home"

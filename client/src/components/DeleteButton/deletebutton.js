@@ -8,7 +8,7 @@ import "tippy.js/dist/tippy.css";
 function DeleteBtn(props) {
   return (
     <div>
-      <Tippy className="allpeopleTooltip" content="Delete this service">
+      <Tippy className="peopleTooltip" content="Delete">
         <span className="delete-btn" {...props} role="button">
           ✗
         </span>
