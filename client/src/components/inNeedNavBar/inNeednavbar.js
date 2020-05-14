@@ -15,7 +15,7 @@ function HelperNavBar(props) {
         </Tippy>
       </Link>
       <Link to="/Myservice">
-        <Tippy className="allpeopleTooltip" content="Your current Requests">
+        <Tippy className="allpeopleTooltip" content="Your Requests">
           <i className="fas fa-server" style={{ fontSize: 30 }}></i>
         </Tippy>
       </Link>
