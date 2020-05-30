@@ -31,8 +31,11 @@ In-need side of the app:
 
 Deployed link :https://stronger-community.herokuapp.com/
 
-You can either sign up or user 
-Help@test.om as a helper account, and vulnerable@test.com as an in-need account 
+You can either sign up or  login using:
+
+Help@test.om as a helper account.
+
+vulnerable@test.com as an in-need account.
 
 password for both accounts is : 123456
 
